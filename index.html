@@ -313,9 +313,9 @@ function ph(src,alt,cls){return `<div class="${cls} bg-gradient-to-br from-fm-pu
 function renderMedia(){
 const c=gallery.slice(0,10).map(g=>`<div class="w-[224px] mr-4 flex-shrink-0 cursor-pointer" onclick="openLightbox('${g.src}')">${ph(g.src,'Ministry photo','h-44 rounded-2xl shadow-md')}</div>`).join('');
 document.getElementById('carousel').innerHTML=c+c;
-document.getElementById('meet-img').innerHTML=ph('images/meet-venerable.jpg','The Venerable Freeborn A. Onokpite','h-72 sm:h-96 rounded-2xl');
-document.getElementById('about-img').innerHTML=ph('images/about-banner.jpg','Ven. Onokpite at the pulpit','h-48 sm:h-72 rounded-3xl');
-document.getElementById('events-img').innerHTML=ph('images/events-banner.jpg','Divine Encounter','h-40 sm:h-56 rounded-3xl');
+document.getElementById('meet-img').innerHTML=ph('sir.jpg','The Venerable Freeborn A. Onokpite','h-72 sm:h-96 rounded-2xl');
+document.getElementById('about-img').innerHTML=ph('hero.jpg','Ven. Onokpite at the pulpit','h-48 sm:h-72 rounded-3xl');
+document.getElementById('events-img').innerHTML=ph('cover.jpg','Divine Encounter','h-40 sm:h-56 rounded-3xl');
 document.getElementById('video-grid').innerHTML=[1,2,3].map(n=>`<a href="https://www.youtube.com/@FreebornMinistries" target="_blank" rel="noopener" class="group block bg-white rounded-2xl border border-slate-100 overflow-hidden hover:-translate-y-1 transition-transform"><div class="relative">${ph('images/video-0'+n+'.jpg','Sermon thumbnail','h-44')}<span class="absolute inset-0 flex items-center justify-center"><i class="fa-solid fa-circle-play text-5xl text-white/90"></i></span></div><div class="p-4"><p class="font-bold text-sm">Teaching Title ${n}</p><p class="text-[11px] text-slate-500 mt-1">Watch on YouTube</p></div></a>`).join('');
 setFilter('all');
 }
