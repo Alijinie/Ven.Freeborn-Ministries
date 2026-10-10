@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>The Ven. Freeborn A. Onokpite (JP) | Official Ministry Portal</title>
+    <meta name="description" content="Official portal of The Venerable Freeborn A. Onokpite (JP) - State Deputy Coordinator on Religious Matters, Delta State, Vicar, and Deliverance Minister.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        anglican: {
+                            bg: '#0c0a10',
+                            card: '#16131f',
+                            gold: '#d97706',
+                            goldLight: '#fbbf24',
+                            purple: '#581c87',
+                            purpleDark: '#3b0764',
+                        }
+                    },
+                    fontFamily: { 
+                        sans: ['Plus Jakarta Sans', 'sans-serif'], 
+                        serif: ['Playfair Display', 'serif'] 
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            background-color: #0c0a10;
+            background-image: radial-gradient(circle at 50% 0%, rgba(88, 28, 135, 0.18) 0%, transparent 50%);
+            color: #f3f4f6;
+        }
+        .glass-card {
+            background: linear-gradient(145deg, rgba(28, 24, 38, 0.85) 0%, rgba(18, 15, 25, 0.95) 100%);
+            border: 1px solid rgba(217, 119, 6, 0.22);
+            backdrop-filter: blur(12px);
+        }
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .fade-up { animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; transform: translateY(20px); }
+        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+        /* Modal transitions */
+        .modal-backdrop { transition: opacity 0.3s ease; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col pb-24 md:pb-0 selection:bg-anglican-gold selection:text-black overflow-x-hidden">
+
+    <!-- TOP SCRIPTURE TICKER -->
+    <div class="w-full bg-gradient-to-r from-anglican-purpleDark via-anglican-purple to-anglican-purpleDark border-b border-amber-500/20 py-2 px-4 text-center relative z-40">
+        <p class="text-[11px] md:text-xs text-amber-100/90 font-medium tracking-wide">
+            <i class="fa-solid fa-dove text-amber-400 mr-2"></i>
+            <span class="font-serif italic">"Empowering Lives through the Word & Spirit"</span>
+            <span class="text-amber-400 font-bold ml-1">— Freeborn Ministries</span>
+        </p>
+    </div>
+
+    <!-- STICKY NAV BAR -->
+    <header class="sticky top-0 z-40 backdrop-blur-xl bg-anglican-bg/90 border-b border-white/10">
+        <nav class="max-w-7xl mx-auto px-4 md:px-8 py-3 flex items-center justify-between gap-3">
+            <a href="#top" class="flex items-center gap-3 shrink-0">
+                <div class="w-10 h-10 rounded-full bg-amber-500/10 border-2 border-amber-500/40 flex items-center justify-center text-amber-400 font-serif font-bold text-lg shadow-lg shadow-amber-500/10">
+                    VO
+                </div>
+                <div class="leading-tight">
+                    <p class="text-white font-extrabold text-sm">Ven. Freeborn A. Onokpite <span class="text-amber-400 font-normal">(JP)</span></p>
+                    <p class="text-amber-400 text-[10px] font-bold tracking-widest uppercase">State Deputy Coordinator, Religious Matters</p>
+                </div>
+            </a>
+            
+            <div class="hidden lg:flex items-center gap-6 text-[13px] font-bold text-white/70">
+                <a href="#about" class="hover:text-amber-400 transition-colors">About</a>
+                <a href="#services" class="hover:text-amber-400 transition-colors">Services</a>
+                <a href="#library" class="hover:text-amber-400 transition-colors">Publications</a>
+                <a href="#events" class="hover:text-amber-400 transition-colors">Events</a>
+                <a href="#faq" class="hover:text-amber-400 transition-colors">FAQ</a>
+            </div>
+
+            <div class="flex items-center gap-2">
+                <!-- PLACEHOLDER: WhatsApp direct link using provided number +2348034040148 -->
+                <a href="https://wa.me/2348034040148?text=Hello%20Venerable,%20I%20am%20reaching%20out%20from%20your%20official%20website." target="_blank" class="bg-gradient-to-r from-amber-600 to-amber-500 text-black px-4 py-2 rounded-full font-bold text-xs hover:scale-105 transition-transform shadow-lg shadow-amber-600/20 flex items-center gap-1.5">
+                    <i class="fa-brands fa-whatsapp text-sm"></i> Connect
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main id="top" class="flex-1 pt-6 pb-16 px-4 md:px-8 max-w-7xl mx-auto w-full">
+        
+        <!-- HERO SECTION -->
+        <section class="fade-up mb-12">
+            <div class="relative rounded-3xl overflow-hidden glass-card p-6 md:p-12 border border-amber-500/30 shadow-2xl flex flex-col lg:flex-row items-center gap-8">
+                <div class="lg:w-3/5 space-y-6">
+                    <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 text-[10px] font-bold tracking-wider border border-amber-500/30">
+                        <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
+                        SERVANT-LEADER | TEACHER | DELIVERANCE MINISTER
+                    </span>
+                    <h1 class="text-3xl md:text-5xl font-extrabold leading-tight text-white font-serif">
+                        The Venerable Freeborn A. Onokpite <span class="text-amber-400 text-2xl font-sans font-bold">(JP)</span>
+                    </h1>
+                    <p class="text-white/80 text-sm md:text-base leading-relaxed">
+                        A seasoned Anglican priest, theologian, and public servant based in Warri, Delta State[cite: 1]. Dedicated to breaking spiritual yokes, fostering inter-faith peace, and transforming lives through the Word and Spirit[cite: 1, 2].
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-3 pt-2">
+                        <!-- Trigger Bio Modal -->
+                        <button onclick="openModal('bioModal')" class="bg-gradient-to-r from-amber-600 to-amber-500 text-black px-6 py-3 rounded-xl font-bold text-xs hover:scale-105 transition-transform shadow-lg shadow-amber-600/20 flex items-center gap-2">
+                            <i class="fa-solid fa-user-tie"></i> Read Full Biography
+                        </button>
+                        <!-- Trigger Prayer Modal -->
+                        <button onclick="openModal('prayerModal')" class="bg-white/5 hover:bg-white/15 border border-white/20 text-white px-6 py-3 rounded-xl font-bold text-xs hover:scale-105 transition-transform flex items-center gap-2">
+                            <i class="fa-solid fa-hands-praying text-amber-400"></i> Submit Prayer Request
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Hero Profile Visual Placeholder -->
+                <div class="lg:w-2/5 w-full flex justify-center">
+                    <div class="w-64 h-80 md:w-72 md:h-96 rounded-2xl bg-gradient-to-b from-amber-500/20 to-purple-900/40 border-2 border-amber-500/40 p-4 shadow-2xl relative overflow-hidden flex flex-col justify-end">
+                        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&q=80&w=600')] bg-cover bg-center opacity-30 mix-blend-luminosity"></div>
+                        <div class="relative z-10 text-center p-4 bg-black/70 backdrop-blur-md rounded-xl border border-amber-500/30 w-full">
+                            <span class="text-[10px] uppercase tracking-widest text-amber-400 font-bold">Delta State Govt Appointee</span>
+                            <h3 class="text-white font-bold text-sm mt-1">State Deputy Coordinator (Central)</h3>
+                            <p class="text-white/60 text-[11px] mt-0.5">Religious Matters</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- QUICK HIGHLIGHTS STATS -->
+        <section class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
+            <div class="glass-card rounded-2xl p-5 text-center border border-amber-500/20 hover:border-amber-500/50 transition-colors">
+                <p class="text-2xl md:text-3xl font-extrabold gold-gradient-text">JP</p>
+                <p class="text-[11px] font-bold text-white/60 uppercase tracking-widest mt-1">Justice of the Peace[cite: 1]</p>
+            </div>
+            <div class="glass-card rounded-2xl p-5 text-center border border-amber-500/20 hover:border-amber-500/50 transition-colors">
+                <p class="text-2xl md:text-3xl font-extrabold text-white">Warri</p>
+                <p class="text-[11px] font-bold text-white/60 uppercase tracking-widest mt-1">Delta State Base[cite: 1]</p>
+            </div>
+            <div class="glass-card rounded-2xl p-5 text-center border border-amber-500/20 hover:border-amber-500/50 transition-colors">
+                <p class="text-2xl md:text-3xl font-extrabold text-white">Dec 2023</p>
+                <p class="text-[11px] font-bold text-white/60 uppercase tracking-widest mt-1">Gov. Appointee[cite: 1]</p>
+            </div>
+            <div class="glass-card rounded-2xl p-5 text-center border border-amber-500/20 hover:border-amber-500/50 transition-colors">
+                <p class="text-2xl md:text-3xl font-extrabold text-white">Scholar</p>
+                <p class="text-[11px] font-bold text-white/60 uppercase tracking-widest mt-1">African Christianity[cite: 1]</p>
+            </div>
+        </section>
+
+        <!-- ABOUT & MINISTRY PREVIEW -->
+        <section id="about" class="fade-up mb-16 scroll-mt-24">
+            <div class="glass-card rounded-3xl p-6 md:p-10 border border-amber-500/20">
+                <div class="flex flex-col md:flex-row gap-8 items-center">
+                    <div class="md:w-2/3 space-y-4">
+                        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/20 text-purple-300 text-[10px] font-bold tracking-wider border border-purple-500/30">
+                            <i class="fa-solid fa-church"></i> ECCLESIASTICAL & PUBLIC LEADERSHIP
+                        </span>
+                        <h2 class="text-2xl md:text-3xl font-extrabold text-white font-serif">
+                            Bridging Spiritual Ministry and <span class="gold-gradient-text">Community Service</span>
+                        </h2>
+                        <p class="text-white/80 text-sm leading-relaxed">
+                            Venerable Freeborn A. Onokpite has served in key parishes including <strong class="text-white">All Saints' Anglican Chapel (DSC)</strong> and <strong class="text-white">Christ's Anglican Church (Okwagbe Waterside)</strong>[cite: 1]. His ministry is widely recognized for dynamic deliverance programs and breaking spiritual yokes[cite: 1].
+                        </p>
+                        <p class="text-white/80 text-sm leading-relaxed">
+                            Appointed by Governor Sheriff Oborevwori as State Deputy Coordinator (Central) on Religious Matters in December 2023, he fosters religious harmony, inter-faith peace, and moral guidance across Delta State[cite: 1, 3].
+                        </p>
+                        <button onclick="openModal('bioModal')" class="inline-flex items-center gap-2 text-amber-400 font-bold text-xs hover:text-amber-300 transition-colors pt-2">
+                            Explore Complete Profile & Academic Works <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                    <div class="md:w-1/3 w-full bg-black/40 rounded-2xl p-6 border border-amber-500/20 space-y-4">
+                        <h3 class="text-amber-400 font-bold text-sm uppercase tracking-wider"><i class="fa-solid fa-bullseye mr-2"></i> Mission Statement</h3>
+                        <p class="text-xs text-white/80 italic font-serif leading-relaxed">
+                            "To transform lives through the Word of God, prayer, and deliverance; connecting generations and empowering believers to walk in faith and purpose."[cite: 2]
+                        </p>
+                        <div class="pt-2 border-t border-white/10">
+                            <p class="text-[11px] text-white/60"><strong>Base:</strong> Freeborn Ministries, Warri, Delta State[cite: 1, 2]</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES & OFFERINGS SECTION -->
+        <section id="services" class="fade-up mb-16 scroll-mt-24">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
+                <div>
+                    <span class="text-amber-400 text-[10px] font-bold tracking-widest uppercase bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">Spiritual Offerings</span>
+                    <h2 class="text-2xl md:text-3xl font-extrabold text-white font-serif mt-2">Ministry <span class="gold-gradient-text">& Services</span></h2>
+                </div>
+                <p class="text-xs text-white/60">Rooted in deliverance, mentorship, and biblical exposition[cite: 2].</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="glass-card rounded-2xl p-6 border border-white/10 flex flex-col justify-between hover:border-amber-500/40 transition-colors">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center text-lg mb-4">
+                            <i class="fa-solid fa-fire"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Deliverance Sessions</h3>
+                        <p class="text-xs text-white/70 leading-relaxed">
+                            Intensive spiritual sessions focused on breaking spiritual barriers, generational curses, and family yokes through fervent prayer[cite: 2].
+                        </p>
+                    </div>
+                    <button onclick="openModal('prayerModal')" class="mt-6 w-full bg-white/5 hover:bg-amber-500 hover:text-black border border-white/10 text-white py-2.5 rounded-xl text-xs font-bold transition-all">
+                        Request Session
+                    </button>
+                </div>
+
+                <div class="glass-card rounded-2xl p-6 border border-white/10 flex flex-col justify-between hover:border-amber-500/40 transition-colors">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/30 text-purple-300 flex items-center justify-center text-lg mb-4">
+                            <i class="fa-solid fa-users-rectangle"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Mentorship & Leadership</h3>
+                        <p class="text-xs text-white/70 leading-relaxed">
+                            Dedicated training for younger clergy and youth, including active mentorship via the Anglican Youth Fellowship (AYF) and community youth initiatives[cite: 2].
+                        </p>
+                    </div>
+                    <a href="https://wa.me/2348034040148?text=Hello%20Venerable,%20I%20am%20interested%20in%20mentorship." target="_blank" class="mt-6 w-full bg-white/5 hover:bg-amber-500 hover:text-black border border-white/10 text-white py-2.5 rounded-xl text-xs font-bold transition-all text-center">
+                        Connect on WhatsApp
+                    </a>
+                </div>
+
+                <div class="glass-card rounded-2xl p-6 border border-white/10 flex flex-col justify-between hover:border-amber-500/40 transition-colors">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center text-lg mb-4">
+                            <i class="fa-solid fa-book-bible"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Biblical Teaching</h3>
+                        <p class="text-xs text-white/70 leading-relaxed">
+                            In-depth scriptural exposition and specialized series such as "Protocol for Life in the Spirit" designed for spiritual maturity[cite: 2].
+                        </p>
+                    </div>
+                    <button onclick="openModal('libraryModal')" class="mt-6 w-full bg-white/5 hover:bg-amber-500 hover:text-black border border-white/10 text-white py-2.5 rounded-xl text-xs font-bold transition-all">
+                        View Sermons & Research
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- PUBLICATIONS & LIBRARY SECTION -->
+        <section id="library" class="fade-up mb-16 scroll-mt-24">
+            <div class="glass-card rounded-3xl p-6 md:p-10 border border-amber-500/20">
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
+                    <div>
+                        <span class="text-amber-400 text-[10px] font-bold tracking-widest uppercase bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">Scholarly Works</span>
+                        <h2 class="text-2xl md:text-3xl font-extrabold text-white font-serif mt-2">Publications & <span class="gold-gradient-text">Research</span></h2>
+                    </div>
+                    <button onclick="openModal('libraryModal')" class="text-xs font-bold text-amber-400 hover:underline">View All Resources <i class="fa-solid fa-arrow-right ml-1"></i></button>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-black/40 rounded-2xl p-5 border border-white/5 flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded">2022 Research Publication</span>
+                            <h3 class="text-white font-bold text-base mt-2 mb-1">"Emergence of Charismatic Movement in Urhobo, Niger Delta, Nigeria"</h3>
+                            <p class="text-xs text-white/60">Published in the Saudi Journal of Humanities and Social Sciences[cite: 3]. Documenting the historical trajectory of charismatic awakening[cite: 1].</p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between">
+                            <span class="text-[11px] text-white/50">Author: Ven. F. A. Onokpite</span>
+                            <button onclick="openModal('libraryModal')" class="text-xs text-amber-400 font-bold hover:underline">Read Abstract</button>
+                        </div>
+                    </div>
+
+                    <div class="bg-black/40 rounded-2xl p-5 border border-white/5 flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded">2022 Research Publication</span>
+                            <h3 class="text-white font-bold text-base mt-2 mb-1">"Anglican Fasting and Prayer Society and Development of Christianity in Urhobo, 1990-2017"</h3>
+                            <p class="text-xs text-white/60">An in-depth study on spiritual movements and church development in the Niger Delta region[cite: 3].</p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between">
+                            <span class="text-[11px] text-white/50">Author: Ven. F. A. Onokpite</span>
+                            <button onclick="openModal('libraryModal')" class="text-xs text-amber-400 font-bold hover:underline">Read Abstract</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EVENTS & SCHEDULE SECTION -->
+        <section id="events" class="fade-up mb-16 scroll-mt-24">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
+                <div>
+                    <span class="text-amber-400 text-[10px] font-bold tracking-widest uppercase bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">Calendar & Programs</span>
+                    <h2 class="text-2xl md:text-3xl font-extrabold text-white font-serif mt-2">Upcoming & Recurring <span class="gold-gradient-text">Events</span></h2>
+                </div>
+                <button onclick="openModal('eventsModal')" class="text-xs font-bold text-amber-400 hover:underline">View Full Calendar <i class="fa-solid fa-arrow-right ml-1"></i></button>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="glass-card rounded-2xl p-5 border border-white/10">
