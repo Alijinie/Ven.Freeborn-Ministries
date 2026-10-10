@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Freeborn Ministries | The Venerable Freeborn A. Onokpite</title>
+<meta name="description" content="Freeborn Ministries, the ministry of The Venerable Freeborn A. Onokpite, transforming lives through the Word of God, prayer and deliverance. Anglican Diocese of Ughelli, Warri.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Freeborn Ministries | Word, Prayer & Deliverance">
+<meta property="og:description" content="Transforming lives through the Word of God, prayer, and deliverance. Based in the Anglican Diocese of Ughelli.">
+<meta property="og:image" content="og.jpg">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet">
+<script>
+tailwind.config={theme:{extend:{colors:{fm:{cream:'#FAF7F2',purple:'#3F2468',gold:'#C9A227',royal:'#2A4B8D',rose:'#8E2C48'}},fontFamily:{sans:['Plus Jakarta Sans','sans-serif'],serif:['Playfair Display','serif']}}}}
+</script>
+<style>
+body{background:#FAF7F2}
+.glass{background:rgba(255,255,255,.94);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(63,36,104,.08)}
+.glass-card{background:linear-gradient(145deg,#fff 0%,#FAF7F2 100%);border:1px solid rgba(63,36,104,.06);box-shadow:0 12px 35px rgba(63,36,104,.05)}
+.fade-up{animation:fadeUp .5s cubic-bezier(.16,1,.3,1) forwards}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.accordion-body{display:none}
+.accordion-item.open .accordion-body{display:block;animation:fadeUp .35s ease forwards}
+.accordion-item.open .accordion-chevron{transform:rotate(180deg)}
+.accordion-chevron{transition:transform .3s ease}
+#back-to-top{transition:opacity .3s,transform .3s;opacity:0;pointer-events:none;transform:translateY(12px)}
+#back-to-top.show{opacity:1;pointer-events:auto;transform:none}
+@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(calc(-240px * 10))}}
+.carousel-track{display:flex;width:calc(240px * 20);animation:scroll 40s linear infinite}
+.carousel-track:hover{animation-play-state:paused}
+.testi-track{transition:transform .5s cubic-bezier(.16,1,.3,1)}
+.filter-btn.active{background:#3F2468;color:#C9A227;border-color:#3F2468}
+.tier-card.selected{border-color:#C9A227!important;box-shadow:0 16px 40px rgba(201,162,39,.2);transform:translateY(-4px)}
+#lightbox{backdrop-filter:blur(8px)}
+</style>
+</head>
+<body class="bg-fm-cream text-fm-purple font-sans min-h-screen flex flex-col selection:bg-fm-gold selection:text-fm-purple overflow-x-hidden">
+<div class="fixed inset-0 overflow-hidden -z-10 pointer-events-none opacity-40">
+<div class="absolute -top-[10%] -left-[10%] w-[500px] h-[500px] bg-fm-royal/10 rounded-full blur-[120px]"></div>
+<div class="absolute top-[30%] -right-[10%] w-[600px] h-[600px] bg-fm-gold/10 rounded-full blur-[140px]"></div>
+</div>
+
+<!-- HEADER -->
+<header class="fixed top-0 w-full z-40 px-4 sm:px-6 py-4">
+<div class="max-w-7xl mx-auto glass rounded-2xl sm:rounded-full px-5 py-3 flex justify-between items-center shadow-md shadow-fm-purple/5">
+<div class="flex items-center gap-3 cursor-pointer" onclick="switchView('home')">
+<div class="h-11 w-11 rounded-full bg-fm-purple flex items-center justify-center text-fm-gold border border-fm-gold/40 flex-shrink-0"><i class="fa-solid fa-cross"></i></div>
+<div>
+<span class="block text-sm sm:text-base font-extrabold tracking-tight font-serif uppercase">Freeborn Ministries</span>
+<span class="block text-[9px] sm:text-[10px] text-fm-gold font-bold tracking-widest uppercase">Anglican Diocese of Ughelli • Warri</span>
+</div>
+</div>
+<div class="hidden lg:flex items-center gap-7 text-xs font-bold uppercase tracking-wider text-fm-purple/70">
+<button onclick="switchView('home')" id="d-nav-home">Home</button>
+<button onclick="switchView('about')" id="d-nav-about">About</button>
+<button onclick="switchView('ministry')" id="d-nav-ministry">Ministry</button>
+<button onclick="switchView('gallery')" id="d-nav-gallery">Gallery</button>
+<button onclick="switchView('events')" id="d-nav-events">Events</button>
+<button onclick="switchView('give')" id="d-nav-give">Give</button>
+<button onclick="switchView('connect')" id="d-nav-connect">Connect</button>
+<button onclick="openPrayer()" class="bg-fm-purple hover:bg-fm-gold hover:text-fm-purple text-white px-6 py-2.5 rounded-full transition-all shadow-lg flex items-center gap-2 text-xs font-extrabold"><span class="w-2 h-2 rounded-full bg-fm-gold animate-ping"></span>Prayer Request</button>
+</div>
+</div>
+</header>
+
+<main class="flex-1 pt-28 pb-32 px-4 md:px-8 max-w-7xl mx-auto w-full">
+
+<!-- HOME -->
+<section id="view-home" class="space-y-14 fade-up">
+<div class="relative rounded-3xl overflow-hidden bg-fm-purple text-white shadow-2xl border border-fm-gold/20 p-8 sm:p-12 lg:p-16 flex flex-col lg:flex-row items-center justify-between">
+<div class="absolute -right-20 -bottom-20 w-96 h-96 bg-fm-gold/20 rounded-full blur-3xl pointer-events-none"></div>
+<div class="lg:w-7/12 z-10 space-y-6">
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-fm-gold/15 text-fm-gold border border-fm-gold/30 text-xs font-bold tracking-wide"><i class="fa-solid fa-dove"></i><span>WORD • PRAYER • DELIVERANCE</span></div>
+<h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-extrabold leading-[1.15]">Empowering Lives through the <span class="text-transparent bg-clip-text bg-gradient-to-r from-fm-gold via-yellow-200 to-amber-400">Word & Spirit</span>.</h1>
+<p class="text-slate-300 text-sm sm:text-base max-w-xl leading-relaxed">Welcome to the official home of Freeborn Ministries, the ministry of The Venerable Freeborn A. Onokpite (JP). We connect generations, offer spiritual guidance, and empower believers to walk in faith and purpose.</p>
+<div class="pt-2 flex flex-wrap gap-4 items-center">
+<button onclick="openPrayer()" class="bg-fm-gold text-fm-purple px-8 py-3.5 rounded-xl font-bold text-sm hover:bg-yellow-400 transition-all shadow-xl flex items-center gap-3"><i class="fa-solid fa-hands-praying text-lg"></i>Submit a Prayer Request</button>
+<a href="https://www.youtube.com/@FreebornMinistries" target="_blank" rel="noopener" class="px-6 py-3.5 rounded-xl font-bold text-sm bg-white/10 hover:bg-white/20 border border-white/15 text-white"><i class="fa-brands fa-youtube mr-2"></i>Watch Sermons</a>
+</div>
+</div>
+<div class="mt-10 lg:mt-0 lg:w-4/12 relative flex justify-center">
+<div class="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full p-2 bg-gradient-to-tr from-fm-gold to-fm-royal shadow-2xl">
+<div class="w-full h-full rounded-full border-4 border-fm-purple bg-fm-purple overflow-hidden flex items-center justify-center text-fm-gold text-6xl"><img src="venerable.jpg" alt="The Venerable Freeborn A. Onokpite" class="w-full h-full object-cover" onerror="this.remove()"><i class="fa-solid fa-cross absolute"></i></div>
+</div>
+<div class="absolute -bottom-4 bg-white text-fm-purple px-5 py-2.5 rounded-2xl shadow-xl border border-slate-100">
+<div class="text-[11px] font-bold leading-tight uppercase tracking-wider">Ven. Freeborn Onokpite<br><span class="text-fm-gold">Servant-Leader • Teacher</span></div>
+</div>
+</div>
+</div>
+
+<div class="space-y-4 overflow-hidden">
+<div class="flex flex-col sm:flex-row justify-between sm:items-end gap-2 px-2"><div><span class="text-xs font-black tracking-widest uppercase text-fm-gold">Life at Freeborn Ministries</span><h2 class="text-2xl sm:text-3xl font-extrabold font-serif mt-1">A Snapshot of the Ministry</h2></div><p class="text-xs font-bold italic">Tap any photo to enlarge.</p></div>
+<div class="relative w-full overflow-hidden py-4 before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-16 before:bg-gradient-to-r before:from-fm-cream before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-16 after:bg-gradient-to-l after:from-fm-cream after:to-transparent"><div id="carousel" class="carousel-track gap-4"></div></div>
+</div>
+<div class="space-y-6">
+<div class="flex justify-between items-center border-b border-fm-purple/10 pb-4">
+<h2 class="text-2xl font-serif font-bold">What We Do</h2>
+<button onclick="switchView('ministry')" class="text-sm font-bold hover:underline">View Ministry <i class="fa-solid fa-arrow-right text-xs"></i></button>
+</div>
+<div id="home-cards" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-fm-purple text-white p-6 rounded-2xl space-y-3 shadow-lg"><div class="w-10 h-10 rounded-xl bg-fm-gold/20 text-fm-gold flex items-center justify-center"><i class="fa-solid fa-bullseye"></i></div><h3 class="font-serif font-bold text-lg">Our Mission</h3><p class="text-xs text-slate-300 leading-relaxed">To transform lives through the Word of God, prayer, and deliverance; connecting generations and empowering believers to walk in faith and purpose.</p></div>
+<div class="bg-white p-6 rounded-2xl space-y-3 border border-slate-100 shadow-sm"><div class="w-10 h-10 rounded-xl bg-fm-gold/10 text-fm-gold flex items-center justify-center"><i class="fa-solid fa-calendar-days"></i></div><h3 class="font-bold text-lg">Divine Encounter</h3><p class="text-xs text-slate-500 leading-relaxed">Our signature prayer and deliverance service, breaking spiritual yokes and restoring lives.</p><button onclick="switchView('events')" class="text-[11px] font-bold text-fm-gold hover:underline">See the schedule →</button></div>
+<div class="bg-white p-6 rounded-2xl space-y-3 border border-slate-100 shadow-sm"><div class="w-10 h-10 rounded-xl bg-fm-royal/10 text-fm-royal flex items-center justify-center"><i class="fa-solid fa-church"></i></div><h3 class="font-bold text-lg">Worship With Us</h3><p class="text-xs text-slate-500 leading-relaxed">All Saints' Anglican Chapel, DSC Township, Warri, Delta State, Nigeria.</p><button onclick="switchView('connect')" class="text-[11px] font-bold text-fm-royal hover:underline">Plan your visit →</button></div>
+</div>
+<div class="glass-card rounded-3xl p-6 sm:p-8 grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+<!-- EDIT data-target values with real figures -->
+<div><div class="text-3xl font-black"><span class="counter" data-target="280">0</span>+</div><p class="text-[11px] font-bold uppercase tracking-wider text-slate-500 mt-1">Facebook Family</p></div>
+<div><div class="text-3xl font-black text-fm-gold"><span class="counter" data-target="2">0</span></div><p class="text-[11px] font-bold uppercase tracking-wider text-slate-500 mt-1">Recurring Programmes</p></div>
+<div><div class="text-3xl font-black text-fm-royal"><span class="counter" data-target="3">0</span></div><p class="text-[11px] font-bold uppercase tracking-wider text-slate-500 mt-1">Teaching Series</p></div>
+<div><div class="text-3xl font-black text-fm-rose"><span class="counter" data-target="3">0</span></div><p class="text-[11px] font-bold uppercase tracking-wider text-slate-500 mt-1">Core Offerings</p></div>
+</div>
+
+<div class="grid lg:grid-cols-2 gap-8 items-center bg-white rounded-3xl p-6 sm:p-8 border border-slate-100 shadow-sm">
+<div id="meet-img"></div>
+<div class="space-y-4"><span class="text-[11px] font-black uppercase tracking-widest text-fm-gold">Meet the Venerable</span><h2 class="text-2xl sm:text-3xl font-serif font-bold">A Servant-Leader with a Heart for Restoration</h2><p class="text-sm text-slate-600 leading-relaxed">Ven. Freeborn Onokpite is an Anglican priest, theologian and public servant who combines deliverance ministry with active community service.</p><button onclick="switchView('about')" class="bg-fm-purple text-white px-6 py-3 rounded-xl text-xs font-extrabold uppercase tracking-wider hover:bg-fm-gold hover:text-fm-purple">Read His Story</button></div>
+</div>
+
+<div class="space-y-6">
+<div class="flex justify-between items-center border-b border-fm-purple/10 pb-4"><h2 class="text-2xl font-serif font-bold">Latest Teachings</h2><a href="https://www.youtube.com/@FreebornMinistries" target="_blank" rel="noopener" class="text-sm font-bold hover:underline">All on YouTube <i class="fa-solid fa-arrow-right text-xs"></i></a></div>
+<div id="video-grid" class="grid md:grid-cols-3 gap-6"></div>
+</div>
+
+<div class="glass-card rounded-3xl p-6 sm:p-10 space-y-6 overflow-hidden">
+<div class="flex justify-between items-center"><div><span class="text-[11px] font-black uppercase tracking-widest text-fm-gold">Testimonies</span><h2 class="text-2xl font-serif font-bold">Lives Touched by God</h2></div><div class="flex gap-2"><button onclick="moveTesti(-1)" class="w-9 h-9 rounded-full bg-fm-purple text-white hover:bg-fm-gold"><i class="fa-solid fa-chevron-left text-xs"></i></button><button onclick="moveTesti(1)" class="w-9 h-9 rounded-full bg-fm-purple text-white hover:bg-fm-gold"><i class="fa-solid fa-chevron-right text-xs"></i></button></div></div>
+<div class="overflow-hidden"><div id="testi-track" class="testi-track flex gap-4">
+<!-- SAMPLE TEXT: replace with real testimonies -->
+<div class="min-w-full sm:min-w-[48%] bg-white rounded-2xl p-6 border border-slate-100 space-y-3"><div class="text-fm-gold text-sm">★★★★★</div><p class="text-xs text-slate-600 italic leading-relaxed">"Sample testimony: replace with a real testimony from a member of the congregation."</p><p class="text-xs font-bold">— Name <span class="font-normal text-slate-400">• Warri</span></p></div>
+<div class="min-w-full sm:min-w-[48%] bg-white rounded-2xl p-6 border border-slate-100 space-y-3"><div class="text-fm-gold text-sm">★★★★★</div><p class="text-xs text-slate-600 italic leading-relaxed">"Sample testimony: replace with a real testimony from Divine Encounter."</p><p class="text-xs font-bold">— Name <span class="font-normal text-slate-400">• Divine Encounter</span></p></div>
+<div class="min-w-full sm:min-w-[48%] bg-white rounded-2xl p-6 border border-slate-100 space-y-3"><div class="text-fm-gold text-sm">★★★★★</div><p class="text-xs text-slate-600 italic leading-relaxed">"Sample testimony: replace with a real testimony about mentorship or counselling."</p><p class="text-xs font-bold">— Name <span class="font-normal text-slate-400">• Mentorship</span></p></div>
+</div></div>
+<div class="flex justify-center gap-2" id="testi-dots"><span class="tab-dot w-2 h-2 rounded-full bg-fm-gold"></span><span class="tab-dot w-2 h-2 rounded-full bg-slate-300"></span><span class="tab-dot w-2 h-2 rounded-full bg-slate-300"></span></div>
+</div>
+</section>
+
+<!-- GALLERY -->
+<section id="view-gallery" class="hidden space-y-8 fade-up">
+<div class="flex flex-col sm:flex-row justify-between sm:items-end gap-4"><div><span class="text-[11px] font-black uppercase tracking-widest text-fm-gold">Gallery</span><h2 class="text-3xl font-serif font-bold mt-1">Moments of Faith</h2></div>
+<div class="flex flex-wrap gap-2 text-[11px] font-bold uppercase"><button onclick="setFilter('all',this)" class="filter-btn active px-4 py-2 rounded-full border border-fm-purple/20">All</button><button onclick="setFilter('worship',this)" class="filter-btn px-4 py-2 rounded-full border border-fm-purple/20">Worship</button><button onclick="setFilter('encounter',this)" class="filter-btn px-4 py-2 rounded-full border border-fm-purple/20">Divine Encounter</button><button onclick="setFilter('community',this)" class="filter-btn px-4 py-2 rounded-full border border-fm-purple/20">Community</button></div></div>
+<div id="gallery-grid" class="grid grid-cols-2 md:grid-cols-4 gap-3"></div>
+</section>
+
+<!-- GIVE -->
+<section id="view-give" class="hidden space-y-10 fade-up">
+<div class="bg-fm-purple text-white rounded-3xl p-8 sm:p-12 space-y-3"><span class="text-[11px] font-black uppercase tracking-widest text-fm-gold">Partner With Us</span><h2 class="text-3xl font-serif font-bold">Support the Work of the Ministry</h2><p class="text-sm text-slate-300 max-w-2xl leading-relaxed">Your giving helps us teach the Word, minister deliverance and mentor the next generation.</p></div>
+<div class="grid md:grid-cols-3 gap-6">
+<button onclick="selectTier(this,'Seed','A one-time gift towards the ministry.')" class="tier-card glass-card p-6 rounded-2xl text-left space-y-2 border-2 border-transparent transition-all"><i class="fa-solid fa-seedling text-fm-gold text-xl"></i><h3 class="font-bold text-lg">Seed Offering</h3><p class="text-xs text-slate-500">A one-time gift of any amount.</p></button>
+<button onclick="selectTier(this,'Partner','A monthly gift to sustain outreach and teaching.')" class="tier-card glass-card p-6 rounded-2xl text-left space-y-2 border-2 border-transparent transition-all"><i class="fa-solid fa-handshake text-fm-royal text-xl"></i><h3 class="font-bold text-lg">Ministry Partner</h3><p class="text-xs text-slate-500">A monthly gift to sustain the work.</p></button>
+<button onclick="selectTier(this,'Covenant','A pledge toward special programmes and projects.')" class="tier-card glass-card p-6 rounded-2xl text-left space-y-2 border-2 border-transparent transition-all"><i class="fa-solid fa-dove text-fm-rose text-xl"></i><h3 class="font-bold text-lg">Covenant Pledge</h3><p class="text-xs text-slate-500">Support special programmes and projects.</p></button>
+</div>
+<p id="tier-output" class="text-center text-xs font-bold text-fm-gold">Choose a giving option above.</p>
+<div class="grid lg:grid-cols-2 gap-8">
+<div class="glass-card rounded-3xl p-6 space-y-3"><h3 class="font-serif font-bold text-xl">Give by Bank Transfer</h3>
+<!-- EDIT: replace with real account details -->
+<div class="text-xs space-y-1 bg-white p-4 rounded-xl border border-slate-100"><p><b>Bank:</b> [Bank Name]</p><p><b>Account Name:</b> [Account Name]</p><p><b>Account Number:</b> [0000000000]</p></div>
+<button onclick="copyText('[Bank Name] | [Account Name] | [Account Number]')" class="text-xs font-bold text-fm-gold hover:underline"><i class="fa-regular fa-copy mr-1"></i>Copy giving details</button></div>
+<div class="glass-card rounded-3xl p-6 space-y-3"><h3 class="font-serif font-bold text-xl">Make a Pledge</h3>
+<form onsubmit="handlePledge(event)" class="space-y-3 text-xs"><input id="pledge-name" required placeholder="Your name" class="w-full p-3.5 rounded-xl border border-slate-200 bg-white"><input id="pledge-amt" required placeholder="Amount (₦)" class="w-full p-3.5 rounded-xl border border-slate-200 bg-white"><button class="w-full bg-[#25D366] text-white font-extrabold py-3.5 rounded-xl uppercase tracking-wider"><i class="fa-brands fa-whatsapp mr-2"></i>Send Pledge via WhatsApp</button></form></div>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section id="view-about" class="hidden space-y-10 fade-up">
+<div id="about-img"></div>
+<div class="glass-card rounded-3xl p-8 sm:p-12 space-y-5">
+<span class="text-[11px] font-black uppercase tracking-widest text-fm-gold">About the Venerable</span>
+<h2 class="text-3xl sm:text-4xl font-serif font-bold">Venerable Freeborn Avwerosuoghene Onokpite (JP)</h2>
+<p class="text-sm text-slate-600 leading-relaxed">A seasoned Anglican priest, theologian, and public servant based in Warri, Delta State. With a calling rooted in deliverance, restoration, and servant-leadership, he combines spiritual ministry with active community service.</p>
+<div class="grid md:grid-cols-3 gap-4 pt-2">
+<div class="bg-white p-5 rounded-2xl border border-slate-100"><i class="fa-solid fa-church text-fm-gold"></i><h4 class="font-bold text-sm mt-2">Ecclesiastical Career</h4><p class="text-xs text-slate-500 mt-1">Served in key parishes including All Saints' Anglican Chapel (DSC) and Christ's Anglican Church (Okwagbe Waterside). Collated as Venerable in March 2022.</p></div>
+<div class="bg-white p-5 rounded-2xl border border-slate-100"><i class="fa-solid fa-landmark text-fm-royal"></i><h4 class="font-bold text-sm mt-2">Public Service</h4><p class="text-xs text-slate-500 mt-1">Appointed in December 2023 as State Deputy Coordinator (Central) on Religious Matters, Delta State.</p></div>
+<div class="bg-white p-5 rounded-2xl border border-slate-100"><i class="fa-solid fa-book-open text-fm-rose"></i><h4 class="font-bold text-sm mt-2">Scholarship</h4><p class="text-xs text-slate-500 mt-1">A researcher in African Christianity who has documented charismatic movements in the Niger Delta.</p></div>
+</div>
+</div>
+<div class="space-y-4">
+<h2 class="text-2xl font-serif font-bold border-b border-fm-purple/10 pb-4">Research & Writings</h2>
+<div class="grid md:grid-cols-2 gap-4">
+<div class="bg-white p-5 rounded-2xl border-l-4 border-l-fm-gold shadow-sm"><p class="font-bold text-sm">Emergence of Charismatic Movement in Urhobo, Niger Delta, Nigeria (2022)</p><p class="text-xs text-slate-500 mt-1">Saudi Journal of Humanities and Social Sciences</p></div>
+<div class="bg-white p-5 rounded-2xl border-l-4 border-l-fm-royal shadow-sm"><p class="font-bold text-sm">Anglican Fasting and Prayer Society and Development of Christianity in Urhobo, 1990-2017 (2022)</p></div>
+</div>
+</div>
+</section>
+
+<!-- MINISTRY -->
+<section id="view-ministry" class="hidden space-y-8 fade-up">
+<div><span class="text-[11px] font-black uppercase tracking-widest text-fm-gold">Ministry & Services</span><h2 class="text-3xl font-serif font-bold mt-1">How We Serve</h2><p class="text-xs text-slate-500 mt-1">Tap a card for details.</p></div>
+<div id="ministry-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
+<div class="space-y-4">
+<h2 class="text-2xl font-serif font-bold border-b border-fm-purple/10 pb-4">Teaching Series</h2>
+<div class="grid md:grid-cols-3 gap-4 text-sm font-bold">
+<div class="bg-white p-5 rounded-2xl border border-slate-100"><i class="fa-solid fa-heart text-fm-gold mr-2"></i>The Servant-Leader's Heart</div>
+<div class="bg-white p-5 rounded-2xl border border-slate-100"><i class="fa-solid fa-hand-holding-hand text-fm-gold mr-2"></i>Understanding God as Your Source</div>
+<div class="bg-white p-5 rounded-2xl border border-slate-100"><i class="fa-solid fa-link-slash text-fm-gold mr-2"></i>Deliverance & Restoration</div>
+</div>
+</div>
+</section>
+
+<!-- EVENTS -->
+<section id="view-events" class="hidden space-y-8 fade-up">
+<div><span class="text-[11px] font-black uppercase tracking-widest text-fm-gold">Calendar</span><h2 class="text-3xl font-serif font-bold mt-1">Programmes & Events</h2></div>
+<div id="events-img"></div>
+<div class="grid md:grid-cols-2 gap-6">
+<div class="glass-card p-6 rounded-2xl border-l-4 border-l-fm-gold space-y-2"><span class="text-[10px] font-black uppercase tracking-widest text-fm-gold">Recurring</span><h3 class="font-bold text-lg">Divine Encounter</h3><p class="text-xs text-slate-600 leading-relaxed">Prayer and deliverance service. Day and time to be confirmed with the ministry.</p></div>
+<div class="glass-card p-6 rounded-2xl border-l-4 border-l-fm-royal space-y-2"><span class="text-[10px] font-black uppercase tracking-widest text-fm-royal">Sunday</span><h3 class="font-bold text-lg">Worship Service</h3><p class="text-xs text-slate-600 leading-relaxed">All Saints' Anglican Chapel, DSC Township, Warri. Service times to be confirmed.</p></div>
+</div>
+<div class="bg-white p-6 rounded-2xl border border-dashed border-fm-purple/20 text-center space-y-3"><p class="text-sm text-slate-600">Want Ven. Onokpite to speak at your event?</p><button onclick="switchView('connect')" class="bg-fm-purple text-white px-6 py-3 rounded-xl text-xs font-extrabold uppercase tracking-wider hover:bg-fm-gold hover:text-fm-purple">Send an Invitation</button></div>
+</section>
+
+<!-- CONNECT -->
+<section id="view-connect" class="hidden space-y-10 fade-up">
+<div class="grid lg:grid-cols-2 gap-8">
+<div class="glass-card rounded-3xl p-6 sm:p-8 space-y-4">
+<h2 class="text-2xl font-serif font-bold">Connect with Ven. Onokpite</h2>
+<form onsubmit="handleContact(event)" class="space-y-3 text-xs">
+<input id="nameInput" required placeholder="Your name" class="w-full p-3.5 rounded-xl border border-slate-200 bg-white">
+<select id="purposeInput" class="w-full p-3.5 rounded-xl border border-slate-200 bg-white"><option>Speaking Invitation</option><option>Counselling / Mentorship</option><option>Deliverance Session</option><option>General Enquiry</option></select>
+<textarea id="messageInput" rows="4" placeholder="Your message" class="w-full p-3.5 rounded-xl border border-slate-200 bg-white"></textarea>
+<button class="w-full bg-[#25D366] text-white font-extrabold py-3.5 rounded-xl uppercase tracking-wider"><i class="fa-brands fa-whatsapp mr-2"></i>Send via WhatsApp</button>
+</form>
+</div>
+<div class="space-y-3">
+<a href="https://wa.me/2348034040148" target="_blank" rel="noopener" class="flex items-center gap-4 bg-white p-5 rounded-2xl border border-slate-100 hover:-translate-y-1 transition-transform"><i class="fa-brands fa-whatsapp text-2xl text-[#25D366]"></i><div><p class="font-bold text-sm">WhatsApp</p><p class="text-xs text-slate-500">+234 803 404 0148</p></div></a>
+<a href="https://web.facebook.com/profile.php?id=61566638474595" target="_blank" rel="noopener" class="flex items-center gap-4 bg-white p-5 rounded-2xl border border-slate-100 hover:-translate-y-1 transition-transform"><i class="fa-brands fa-facebook text-2xl text-[#1877F2]"></i><div><p class="font-bold text-sm">Freeborn Ministries on Facebook</p><p class="text-xs text-slate-500">Daily teachings and updates</p></div></a>
+<a href="https://www.youtube.com/@FreebornMinistries" target="_blank" rel="noopener" class="flex items-center gap-4 bg-white p-5 rounded-2xl border border-slate-100 hover:-translate-y-1 transition-transform"><i class="fa-brands fa-youtube text-2xl text-red-600"></i><div><p class="font-bold text-sm">YouTube</p><p class="text-xs text-slate-500">@FreebornMinistries</p></div></a>
+<a href="https://m.me/61566638474595" target="_blank" rel="noopener" class="flex items-center gap-4 bg-white p-5 rounded-2xl border border-slate-100 hover:-translate-y-1 transition-transform"><i class="fa-brands fa-facebook-messenger text-2xl text-[#0084FF]"></i><div><p class="font-bold text-sm">Messenger</p><p class="text-xs text-slate-500">Message Freeborn Ministries</p></div></a>
+<a href="mailto:freebornministries01@gmail.com" class="flex items-center gap-4 bg-white p-5 rounded-2xl border border-slate-100 hover:-translate-y-1 transition-transform"><i class="fa-solid fa-envelope text-2xl text-fm-gold"></i><div><p class="font-bold text-sm">Email</p><p class="text-xs text-slate-500">freebornministries01@gmail.com</p></div></a>
+</div>
+</div>
+<div class="space-y-4">
+<h2 class="text-2xl font-serif font-bold border-b border-fm-purple/10 pb-4">Frequently Asked Questions</h2>
+<div class="grid md:grid-cols-2 gap-4">
+<div class="accordion-item bg-white rounded-2xl border border-slate-100 overflow-hidden"><button onclick="toggleAccordion(this)" class="w-full flex justify-between items-center p-5 text-left font-bold text-sm">What is Ven. Onokpite's role in the Delta State Government?<i class="fa-solid fa-chevron-down accordion-chevron text-fm-gold text-xs ml-3"></i></button><div class="accordion-body px-5 pb-5 text-xs text-slate-500 leading-relaxed">He serves as State Deputy Coordinator (Central) on Religious Matters, advising on religious affairs and fostering peace.</div></div>
+<div class="accordion-item bg-white rounded-2xl border border-slate-100 overflow-hidden"><button onclick="toggleAccordion(this)" class="w-full flex justify-between items-center p-5 text-left font-bold text-sm">How can I invite Ven. Onokpite to speak?<i class="fa-solid fa-chevron-down accordion-chevron text-fm-gold text-xs ml-3"></i></button><div class="accordion-body px-5 pb-5 text-xs text-slate-500 leading-relaxed">Use the contact form on this page, message us on WhatsApp, or reach out through the Freeborn Ministries Facebook page.</div></div>
+<div class="accordion-item bg-white rounded-2xl border border-slate-100 overflow-hidden"><button onclick="toggleAccordion(this)" class="w-full flex justify-between items-center p-5 text-left font-bold text-sm">Does the ministry offer counselling?<i class="fa-solid fa-chevron-down accordion-chevron text-fm-gold text-xs ml-3"></i></button><div class="accordion-body px-5 pb-5 text-xs text-slate-500 leading-relaxed">Yes. Ven. Onokpite provides mentorship and spiritual counselling, particularly for those seeking deliverance and restoration.</div></div>
+<div class="accordion-item bg-white rounded-2xl border border-slate-100 overflow-hidden"><button onclick="toggleAccordion(this)" class="w-full flex justify-between items-center p-5 text-left font-bold text-sm">Where do you worship?<i class="fa-solid fa-chevron-down accordion-chevron text-fm-gold text-xs ml-3"></i></button><div class="accordion-body px-5 pb-5 text-xs text-slate-500 leading-relaxed">All Saints' Anglican Chapel, DSC Township, Warri, Delta State, Nigeria, in the Anglican Diocese of Ughelli.</div></div>
+</div>
+</div>
+</section>
+</main>
+
+<!-- FOOTER -->
+<footer class="bg-fm-purple text-white pt-14 pb-24 md:pb-10 border-t-4 border-fm-gold">
+<div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10 pb-10 border-b border-white/10">
+<div class="space-y-3"><span class="font-serif font-bold text-xl tracking-wider uppercase">Freeborn Ministries</span><p class="text-xs text-slate-300 leading-relaxed">Transforming lives through the Word of God, prayer, and deliverance. Based in the Anglican Diocese of Ughelli.</p></div>
+<div><h4 class="text-xs font-bold uppercase tracking-widest text-fm-gold mb-3">Navigation</h4><ul class="space-y-2 text-xs text-slate-300"><li><button onclick="switchView('home')">Home</button></li><li><button onclick="switchView('about')">About</button></li><li><button onclick="switchView('ministry')">Ministry</button></li><li><button onclick="switchView('gallery')">Gallery</button></li><li><button onclick="switchView('events')">Events</button></li><li><button onclick="switchView('give')">Give</button></li><li><button onclick="switchView('connect')">Connect</button></li></ul></div>
+<div class="space-y-2.5 text-xs text-slate-300"><h4 class="text-xs font-bold uppercase tracking-widest text-fm-gold mb-3">Contact</h4><p><i class="fa-solid fa-location-dot text-fm-gold mr-2"></i>All Saints' Chapel, DSC Township, Warri</p><p><i class="fa-brands fa-whatsapp text-[#25D366] mr-2"></i>+234 803 404 0148</p><p><i class="fa-solid fa-envelope text-fm-gold mr-2"></i>freebornministries01@gmail.com</p>
+<div class="flex gap-4 text-xl pt-2"><a href="https://web.facebook.com/profile.php?id=61566638474595" target="_blank" rel="noopener"><i class="fa-brands fa-facebook"></i></a><a href="https://www.youtube.com/@FreebornMinistries" target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i></a><a href="https://m.me/61566638474595" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-messenger"></i></a><a href="https://wa.me/2348034040148" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i></a></div></div>
+</div>
+<div class="max-w-7xl mx-auto px-6 pt-6 text-center text-[11px] text-slate-400 flex flex-col sm:flex-row justify-between gap-2"><span>&copy; 2026 Freeborn Ministries, Warri, Delta State, Nigeria</span><span>Word • Prayer • Deliverance</span></div>
+</footer>
+
+<!-- MOBILE NAV -->
+<nav class="lg:hidden fixed bottom-4 left-1/2 -translate-x-1/2 w-[92%] max-w-md z-50">
+<div class="glass bg-fm-purple/95 text-white rounded-full px-3 py-3 flex justify-around items-center shadow-2xl border border-white/10">
+<button onclick="switchView('home')" id="m-nav-home" class="flex flex-col items-center w-11"><i class="fa-solid fa-house"></i><span class="text-[9px] mt-1 font-bold">Home</span></button>
+<button onclick="switchView('about')" id="m-nav-about" class="flex flex-col items-center w-11"><i class="fa-solid fa-user-tie"></i><span class="text-[9px] mt-1 font-bold">About</span></button>
+<button onclick="switchView('ministry')" id="m-nav-ministry" class="flex flex-col items-center w-11"><i class="fa-solid fa-hands-praying"></i><span class="text-[9px] mt-1 font-bold">Ministry</span></button>
+<button onclick="switchView('gallery')" id="m-nav-gallery" class="flex flex-col items-center w-11"><i class="fa-solid fa-images"></i><span class="text-[9px] mt-1 font-bold">Gallery</span></button>
+<button onclick="switchView('events')" id="m-nav-events" class="flex flex-col items-center w-11"><i class="fa-solid fa-calendar-days"></i><span class="text-[9px] mt-1 font-bold">Events</span></button>
+<button onclick="switchView('give')" id="m-nav-give" class="flex flex-col items-center w-11"><i class="fa-solid fa-heart"></i><span class="text-[9px] mt-1 font-bold">Give</span></button>
+<button onclick="switchView('connect')" id="m-nav-connect" class="flex flex-col items-center w-11"><i class="fa-solid fa-envelope"></i><span class="text-[9px] mt-1 font-bold">Connect</span></button>
+</div>
+</nav>
+<div id="lightbox" class="fixed inset-0 z-[60] hidden items-center justify-center p-4 bg-fm-purple/85" onclick="closeLightbox()"><img id="lightbox-img" src="" alt="Preview" class="max-h-[85vh] max-w-full rounded-2xl shadow-2xl border-4 border-white"><button class="absolute top-5 right-5 w-10 h-10 rounded-full bg-white text-fm-purple font-bold"><i class="fa-solid fa-xmark"></i></button></div>
+<div id="toast" class="fixed top-24 left-1/2 -translate-x-1/2 z-50 hidden px-5 py-3 rounded-xl shadow-2xl text-xs font-bold uppercase tracking-wider text-white bg-fm-purple/95 border border-fm-gold/30"></div>
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="fixed bottom-24 lg:bottom-8 right-4 z-40 w-11 h-11 rounded-full bg-fm-purple text-fm-gold shadow-xl border border-fm-gold/40"><i class="fa-solid fa-chevron-up"></i></button>
+
+<!-- MODAL (service detail + prayer request share this shell) -->
+<div id="modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
+<div class="absolute inset-0 bg-fm-purple/70 backdrop-blur-sm" onclick="closeModal()"></div>
+<div class="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl z-10 p-6 sm:p-8 space-y-4 max-h-[90vh] overflow-y-auto">
+<div class="flex justify-between items-start"><div><span id="modal-tag" class="text-[10px] font-black uppercase tracking-widest text-fm-gold"></span><h3 id="modal-title" class="text-2xl font-serif font-bold"></h3></div><button onclick="closeModal()" class="w-8 h-8 rounded-full bg-fm-rose text-white flex items-center justify-center"><i class="fa-solid fa-xmark"></i></button></div>
+<div id="modal-body" class="text-xs text-slate-600 leading-relaxed space-y-3"></div>
+</div>
+</div>
+
+<script>
+const WA='2348034040148';
+const services=[
+{icon:'fa-link-slash',color:'fm-gold',tag:'Core Offering',title:'Deliverance Sessions',desc:'Breaking spiritual barriers and family yokes through the Word of God, prayer and faith.',more:'Held as part of the Divine Encounter programme and by appointment. Contact the ministry to arrange a session.'},
+{icon:'fa-people-group',color:'fm-royal',tag:'Core Offering',title:'Mentorship',desc:'Training and guidance for younger clergy and youth, including involvement with Anglican Youth Fellowship.',more:'Ven. Onokpite provides mentorship and spiritual counselling to those seeking restoration and direction.'},
+{icon:'fa-book-bible',color:'fm-rose',tag:'Core Offering',title:'Biblical Teaching',desc:'In-depth biblical exposition and the teaching "Protocol for Life in the Spirit".',more:'Teaching series include The Servant-Leader\'s Heart and Understanding God as Your Source. Watch on our YouTube channel.'}];
+function cardHTML(s,i){return `<article onclick="openModal(${i})" class="glass-card p-6 rounded-2xl border-l-4 border-l-${s.color} space-y-3 cursor-pointer hover:-translate-y-1 transition-transform"><div class="w-10 h-10 rounded-lg bg-${s.color}/10 text-${s.color} flex items-center justify-center"><i class="fa-solid ${s.icon}"></i></div><h3 class="font-bold text-lg">${s.title}</h3><p class="text-xs text-slate-600 leading-relaxed">${s.desc}</p><span class="text-[11px] font-bold text-${s.color}">Learn more →</span></article>`}
+function renderCards(){const h=services.map(cardHTML).join('');document.getElementById('home-cards').innerHTML=h;document.getElementById('ministry-grid').innerHTML=h}
+function openModal(i){const s=services[i];document.getElementById('modal-tag').innerText=s.tag;document.getElementById('modal-title').innerText=s.title;document.getElementById('modal-body').innerHTML=`<p>${s.desc}</p><p class="font-bold bg-fm-cream p-3 rounded-xl">${s.more}</p><a href="https://wa.me/${WA}?text=${encodeURIComponent('Hello Ven. Onokpite, I would like to know more about: '+s.title)}" target="_blank" rel="noopener" class="block text-center bg-fm-purple text-white font-extrabold py-3 rounded-xl uppercase tracking-wider"><i class="fa-brands fa-whatsapp mr-2"></i>Enquire on WhatsApp</a>`;showModal()}
+function openPrayer(){document.getElementById('modal-tag').innerText='We are listening';document.getElementById('modal-title').innerText='Prayer Request';document.getElementById('modal-body').innerHTML=`<form onsubmit="handlePrayer(event)" class="space-y-3"><input id="pName" required placeholder="Your name (or Anonymous)" class="w-full p-3.5 rounded-xl border border-slate-200"><textarea id="pText" required rows="4" placeholder="How can we pray with you?" class="w-full p-3.5 rounded-xl border border-slate-200"></textarea><button class="w-full bg-[#25D366] text-white font-extrabold py-3 rounded-xl uppercase tracking-wider"><i class="fa-brands fa-whatsapp mr-2"></i>Send Prayer Request</button></form>`;showModal()}
+function showModal(){const m=document.getElementById('modal');m.classList.remove('hidden');m.classList.add('flex')}
+function closeModal(){const m=document.getElementById('modal');m.classList.add('hidden');m.classList.remove('flex')}
+function handlePrayer(e){e.preventDefault();const t=`Prayer request from ${pName.value}: ${pText.value}`;window.open(`https://wa.me/${WA}?text=${encodeURIComponent(t)}`,'_blank');closeModal()}
+function handleContact(e){e.preventDefault();const t=`Hello Ven. Onokpite, I am ${nameInput.value}. Purpose: ${purposeInput.value}.\n${messageInput.value||''}`;window.open(`https://wa.me/${WA}?text=${encodeURIComponent(t)}`,'_blank')}
+function toggleAccordion(btn){const it=btn.closest('.accordion-item');const was=it.classList.contains('open');document.querySelectorAll('.accordion-item.open').forEach(i=>i.classList.remove('open'));if(!was)it.classList.add('open')}
+function switchView(id){
+const views=['home','about','ministry','gallery','events','give','connect'];
+window.scrollTo({top:0,behavior:'smooth'});
+views.forEach(v=>{
+const el=document.getElementById('view-'+v),d=document.getElementById('d-nav-'+v),m=document.getElementById('m-nav-'+v),on=v===id;
+el.classList.toggle('hidden',!on);
+if(d)d.className=on?'text-fm-gold font-extrabold border-b-2 border-fm-gold pb-0.5':'hover:text-fm-gold transition-colors';
+if(m)m.className='flex flex-col items-center w-11 '+(on?'text-fm-gold scale-105 transition-transform':'text-slate-400 hover:text-white');
+});
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+window.addEventListener('scroll',()=>document.getElementById('back-to-top').classList.toggle('show',window.scrollY>600),{passive:true});
+// ===== PLACEHOLDER IMAGES: drop real files into /images with these names =====
+// carousel/gallery: images/gallery-01.jpg ... gallery-12.jpg | videos: images/video-01..03.jpg
+// meet-venerable.jpg, about-banner.jpg, events-banner.jpg
+const gallery=Array.from({length:12},(_,i)=>({src:`images/gallery-${String(i+1).padStart(2,'0')}.jpg`,cat:['worship','encounter','community'][i%3]}));
+function ph(src,alt,cls){return `<div class="${cls} bg-gradient-to-br from-fm-purple to-fm-royal flex items-center justify-center text-fm-gold/60 text-3xl relative overflow-hidden"><i class="fa-solid fa-image"></i><img src="${src}" alt="${alt}" loading="lazy" class="absolute inset-0 w-full h-full object-cover" onerror="this.remove()"></div>`}
+function renderMedia(){
+const c=gallery.slice(0,10).map(g=>`<div class="w-[224px] mr-4 flex-shrink-0 cursor-pointer" onclick="openLightbox('${g.src}')">${ph(g.src,'Ministry photo','h-44 rounded-2xl shadow-md')}</div>`).join('');
+document.getElementById('carousel').innerHTML=c+c;
+document.getElementById('meet-img').innerHTML=ph('images/meet-venerable.jpg','The Venerable Freeborn A. Onokpite','h-72 sm:h-96 rounded-2xl');
+document.getElementById('about-img').innerHTML=ph('images/about-banner.jpg','Ven. Onokpite at the pulpit','h-48 sm:h-72 rounded-3xl');
+document.getElementById('events-img').innerHTML=ph('images/events-banner.jpg','Divine Encounter','h-40 sm:h-56 rounded-3xl');
+document.getElementById('video-grid').innerHTML=[1,2,3].map(n=>`<a href="https://www.youtube.com/@FreebornMinistries" target="_blank" rel="noopener" class="group block bg-white rounded-2xl border border-slate-100 overflow-hidden hover:-translate-y-1 transition-transform"><div class="relative">${ph('images/video-0'+n+'.jpg','Sermon thumbnail','h-44')}<span class="absolute inset-0 flex items-center justify-center"><i class="fa-solid fa-circle-play text-5xl text-white/90"></i></span></div><div class="p-4"><p class="font-bold text-sm">Teaching Title ${n}</p><p class="text-[11px] text-slate-500 mt-1">Watch on YouTube</p></div></a>`).join('');
+setFilter('all');
+}
+function setFilter(f,btn){
+if(btn){document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active')}
+document.getElementById('gallery-grid').innerHTML=gallery.filter(g=>f==='all'||g.cat===f).map(g=>`<div class="cursor-pointer hover:scale-[1.03] transition-transform" onclick="openLightbox('${g.src}')">${ph(g.src,'Gallery photo','h-40 sm:h-52 rounded-2xl shadow-sm')}</div>`).join('');
+}
+function openLightbox(src){const l=document.getElementById('lightbox');document.getElementById('lightbox-img').src=src;l.classList.remove('hidden');l.classList.add('flex')}
+function closeLightbox(){const l=document.getElementById('lightbox');l.classList.add('hidden');l.classList.remove('flex')}
+let testiIndex=0;
+function moveTesti(d){const t=document.getElementById('testi-track'),n=t.children.length;testiIndex=(testiIndex+d+n)%n;const step=t.children[0].getBoundingClientRect().width+16;t.style.transform=`translateX(-${testiIndex*step}px)`;document.querySelectorAll('#testi-dots .tab-dot').forEach((x,i)=>x.className='tab-dot w-2 h-2 rounded-full '+(i===testiIndex?'bg-fm-gold':'bg-slate-300'))}
+function toast(m){const t=document.getElementById('toast');t.innerText=m;t.classList.remove('hidden');setTimeout(()=>t.classList.add('hidden'),2500)}
+function copyText(t){navigator.clipboard?.writeText(t).then(()=>toast('Giving details copied'))}
+function selectTier(b,l,d){document.querySelectorAll('.tier-card').forEach(c=>c.classList.remove('selected'));b.classList.add('selected');document.getElementById('tier-output').innerText=l+': '+d}
+function handlePledge(e){e.preventDefault();const t=`Hello Ven. Onokpite, I am ${document.getElementById('pledge-name').value}. I pledge ₦${document.getElementById('pledge-amt').value} to support Freeborn Ministries. Please confirm next steps.`;window.open(`https://wa.me/${WA}?text=${encodeURIComponent(t)}`,'_blank')}
+function runCounter(el){if(el.dataset.done)return;el.dataset.done='1';const T=parseInt(el.dataset.target,10),t0=performance.now();(function tick(t){const p=Math.min((t-t0)/1400,1);el.innerText=Math.round(T*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(tick)})(t0)}
+const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.querySelectorAll('.counter').forEach(runCounter)}}),{threshold:.25});
+document.querySelectorAll('div.glass-card').forEach(el=>io.observe(el));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox()});
+renderCards();renderMedia();switchView('home');
+</script>
+</body>
+</html>
