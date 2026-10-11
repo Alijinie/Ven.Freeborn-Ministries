@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <!-- ============================================================
+    Freeborn Ministries — Official Website
+    Single-file build. Sections:
+      1. Head / Fonts / Theme
+      2. Styles
+      3. Header + Scripture ticker
+      4. Views: Home, About, Ministry, Gallery, Events, Give, Connect
+      5. Footer / Mobile nav / Lightbox / Modal
+      6. Scripts (config, data, render, modal, nav)
+  ============================================================ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Freeborn Ministries | Word, Prayer & Deliverance — The Venerable Freeborn A. Onokpite</title>
+<meta name="description" content="Official website of Freeborn Ministries International and The Venerable Freeborn A. Onokpite. Rooted in Word, Prayer & Deliverance under the Anglican Diocese of Ughelli, Warri." />
+<meta name="keywords" content="Freeborn Ministries, Ven Freeborn Onokpite, Anglican Diocese of Ughelli, Warri, Word Prayer Deliverance, Christian Ministry Nigeria" />
+<meta name="author" content="Freeborn Ministries" />
+<meta name="robots" content="index, follow" />
+
+<!-- Canonical URL (helps search engines avoid duplicate content issues) -->
+<link rel="canonical" href="https://alijinie.github.io/Ven.Freeborn-Ministries/" />
+
+<!-- Open Graph / Facebook / WhatsApp / LinkedIn -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://alijinie.github.io/Ven.Freeborn-Ministries/" />
+<meta property="og:site_name" content="Freeborn Ministries International" />
+<meta property="og:title" content="Freeborn Ministries | Word, Prayer & Deliverance" />
+<meta property="og:description" content="Join Freeborn Ministries International for Word, Prayer & Deliverance led by The Venerable Freeborn A. Onokpite (Anglican Diocese of Ughelli)." />
+<meta property="og:image" content="https://alijinie.github.io/Ven.Freeborn-Ministries/sir.jpg" />
+<meta property="og:image:alt" content="The Venerable Freeborn A. Onokpite" />
+<meta property="og:locale" content="en_NG" />
+
+<!-- Twitter / X Cards -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Freeborn Ministries | Word, Prayer & Deliverance" />
+<meta name="twitter:description" content="Official website of Freeborn Ministries and The Venerable Freeborn A. Onokpite (Anglican Diocese of Ughelli)." />
+<meta name="twitter:image" content="https://alijinie.github.io/Ven.Freeborn-Ministries/sir.jpg" />
+
+<!-- Favicon & Touch Icon -->
+<link rel="icon" type="image/png" href="https://alijinie.github.io/Ven.Freeborn-Ministries/sir.jpg" />
+<link rel="apple-touch-icon" href="https://alijinie.github.io/Ven.Freeborn-Ministries/sir.jpg" />
+  <!-- Fonts + Icons + Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet" />
+
+  <!-- Theme colours -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            fm: {
+              cream:  '#FAF7F2',
+              purple: '#3F2468',
+              gold:   '#C9A227',
+              royal:  '#2A4B8D',
+              rose:   '#8E2C48'
+            }
+          },
+          fontFamily: {
+            sans:  ['Plus Jakarta Sans', 'sans-serif'],
+            serif: ['Playfair Display', 'serif']
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Custom styles -->
+  <style>
+    body { background: #FAF7F2; }
+
+    .glass {
+      background: rgba(255,255,255,.94);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(63,36,104,.08);
+    }
+
+    .glass-card {
+      background: linear-gradient(145deg, #fff 0%, #FAF7F2 100%);
+      border: 1px solid rgba(63,36,104,.06);
+      box-shadow: 0 12px 35px rgba(63,36,104,.05);
+    }
+
+    .verse-strip {
+      border-left: 4px solid #C9A227;
+      background: #fff;
+    }
+
+    /* Entrance animation */
+    .fade-up { animation: fadeUp .5s cubic-bezier(.16,1,.3,1) forwards; }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* FAQ accordion */
+    .accordion-body { display: none; }
+    .accordion-item.open .accordion-body { display: block; animation: fadeUp .35s ease forwards; }
+    .accordion-chevron { transition: transform .3s ease; }
+    .accordion-item.open .accordion-chevron { transform: rotate(180deg); }
+
+    /* Back-to-top button */
+    #back-to-top { transition: opacity .3s, transform .3s; opacity: 0; pointer-events: none; transform: translateY(12px); }
+    #back-to-top.show { opacity: 1; pointer-events: auto; transform: none; }
+
+    /* Home photo carousel */
+    @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-240px * 11)); } }
+    .carousel-track { display: flex; width: calc(240px * 22); animation: scroll 45s linear infinite; }
+    .carousel-track:hover { animation-play-state: paused; }
+
+    /* Testimony slider */
+    .testi-track { transition: transform .5s cubic-bezier(.16,1,.3,1); }
+
+    /* Gallery filter + Give tiers */
+    .filter-btn.active { background: #3F2468; color: #C9A227; border-color: #3F2468; }
+    .tier-card.selected { border-color: #C9A227 !important; box-shadow: 0 16px 40px rgba(201,162,39,.2); transform: translateY(-4px); }
+
+    #lightbox { backdrop-filter: blur(8px); }
+    #modal-image img { object-fit: cover; }
+  </style>
+</head>
+
+<body class="bg-fm-cream text-fm-purple font-sans min-h-screen flex flex-col selection:bg-fm-gold selection:text-fm-purple overflow-x-hidden">
+
+  <!-- Soft background blobs -->
+  <div class="fixed inset-0 overflow-hidden -z-10 pointer-events-none opacity-40">
+    <div class="absolute -top-[10%] -left-[10%] w-[500px] h-[500px] bg-fm-royal/10 rounded-full blur-[120px]"></div>
+    <div class="absolute top-[30%] -right-[10%] w-[600px] h-[600px] bg-fm-gold/10 rounded-full blur-[140px]"></div>
+  </div>
+
+  <!-- ================= Scripture ticker ================= -->
+  <div class="bg-fm-purple text-center py-2 px-4 border-b border-fm-gold/30">
+    <p class="text-[11px] md:text-xs text-amber-100/90 font-medium tracking-wide">
+      <i class="fa-solid fa-dove text-fm-gold mr-2"></i>
+      <span class="font-serif italic">"For I know the thoughts that I think toward you... to give you an expected end."</span>
+      <span class="text-fm-gold font-bold ml-1">— Jeremiah 29:11 (KJV)</span>
+    </p>
+  </div>
+
+  <!-- ================= Header ================= -->
+  <header class="sticky top-0 w-full z-40 px-4 sm:px-6 py-4">
+    <div class="max-w-7xl mx-auto glass rounded-2xl sm:rounded-full px-5 py-3 flex justify-between items-center shadow-md shadow-fm-purple/5">
+
+      <!-- Logo -->
+      <div class="flex items-center gap-3 cursor-pointer" onclick="switchView('home')">
+        <div class="h-11 w-11 rounded-full bg-fm-purple flex items-center justify-center text-fm-gold border border-fm-gold/40 flex-shrink-0">
+          <i class="fa-solid fa-cross"></i>
+        </div>
+        <div>
+          <span class="block text-sm sm:text-base font-extrabold tracking-tight font-serif uppercase">Freeborn Ministries International</span>
+          <span class="block text-[9px] sm:text-[10px] text-fm-gold font-bold tracking-widest uppercase">Anglican Diocese of Ughelli</span>
+        </div>
+      </div>
+
+      <!-- Desktop nav -->
+      <div class="hidden lg:flex items-center gap-7 text-xs font-bold uppercase tracking-wider text-fm-purple/70">
+        <button onclick="switchView('home')" id="d-nav-home">Home</button>
+        <button onclick="switchView('about')" id="d-nav-about">About</button>
+        <button onclick="switchView('ministry')" id="d-nav-ministry">Ministry</button>
+        <button onclick="switchView('gallery')" id="d-nav-gallery">Gallery</button>
+        <button onclick="switchView('events')" id="d-nav-events">Events</button>
+        <button onclick="switchView('give')" id="d-nav-give">Give</button>
+        <button onclick="switchView('connect')" id="d-nav-connect">Connect</button>
+        <button onclick="openPrayer()" class="bg-fm-purple hover:bg-fm-gold hover:text-fm-purple text-white px-6 py-2.5 rounded-full transition-all shadow-lg flex items-center gap-2 text-xs font-extrabold">
+          <span class="w-2 h-2 rounded-full bg-fm-gold animate-ping"></span>Prayer Request
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= Main ================= -->
+  <main class="flex-1 pt-8 pb-32 px-4 md:px-8 max-w-7xl mx-auto w-full">
+
+    <!-- ============ VIEW: HOME ============ -->
+    <section id="view-home" class="space-y-14 fade-up">
+
+      <!-- Hero -->
+      <div class="relative rounded-3xl overflow-hidden bg-fm-purple text-white shadow-2xl border border-fm-gold/20 p-8 sm:p-12 lg:p-16 flex flex-col lg:flex-row items-center justify-between">
+        <div class="absolute -right-20 -bottom-20 w-96 h-96 bg-fm-gold/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="lg:w-7/12 z-10 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-fm-gold/15 text-fm-gold border border-fm-gold/30 text-xs font-bold tracking-wide">
+            <i class="fa-solid fa-dove"></i><span>WORD • PRAYER • DELIVERANCE</span>
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-extrabold leading-[1.15]">
+            Empowering Lives through the
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-fm-gold via-yellow-200 to-amber-400">Word &amp; Spirit</span>.
+          </h1>
+
+          <p class="text-slate-300 text-sm sm:text-base max-w-xl leading-relaxed">
+            Welcome to Freeborn Ministries International, the ministry of The Venerable Freeborn A. Onokpite (JP).
+            We connect generations, offer spiritual guidance, and empower believers to walk in faith and purpose.
+          </p>
+
+          <!-- Hero verse -->
+          <div class="verse-strip rounded-xl p-4 text-fm-purple">
+            <p class="font-serif italic text-sm">"The Spirit of the Lord is upon me, because he hath anointed me to preach the gospel to the poor."</p>
+            <p class="text-[11px] font-bold text-fm-gold mt-1 tracking-widest uppercase">— Luke 4:18 (KJV)</p>
+          </div>
+
+          <div class="pt-2 flex flex-wrap gap-4 items-center">
+            <button onclick="openPrayer()" class="bg-fm-gold text-fm-purple px-8 py-3.5 rounded-xl font-bold text-sm hover:bg-yellow-400 transition-all shadow-xl flex items-center gap-3">
+              <i class="fa-solid fa-hands-praying text-lg"></i>Submit a Prayer Request
+            </button>
+            <button onclick="document.getElementById('latest-teachings').scrollIntoView({behavior:'smooth'})" class="px-6 py-3.5 rounded-xl font-bold text-sm bg-white/10 hover:bg-white/20 border border-white/15 text-white">
+              <i class="fa-brands fa-youtube mr-2"></i>Watch Sermons
+            </button>
+          </div>
+        </div>
+
+        <!-- Hero portrait (real photo) -->
+        <div class="mt-10 lg:mt-0 lg:w-4/12 relative flex justify-center">
+          <div class="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full p-2 bg-gradient-to-tr from-fm-gold to-fm-royal shadow-2xl">
+            <img src="sir.jpg" alt="The Venerable Freeborn A. Onokpite preaching" class="w-full h-full object-cover rounded-full border-4 border-fm-purple" />
+          </div>
+          <div class="absolute -bottom-4 bg-white text-fm-purple px-5 py-2.5 rounded-2xl shadow-xl border border-slate-100 text-center">
+            <div class="text-[11px] font-bold leading-tight uppercase tracking-wider">Ven. Freeborn Onokpite<br /><span class="text-fm-gold">Servant-Leader • Teacher</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Photo carousel -->
+      <div class="space-y-4 overflow-hidden">
+        <div class="flex flex-col sm:flex-row justify-between sm:items-end gap-2 px-2">
+          <div>
+            <span class="text-xs font-black tracking-widest uppercase text-fm-gold">Life at Freeborn Ministries</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold font-serif mt-1">A Snapshot of the Ministry</h2>
+            <p class="font-serif italic text-xs text-slate-500 mt-1">"Let every thing that hath breath praise the Lord." — Psalm 150:6 (KJV)</p>
+          </div>
+          <p class="text-xs font-bold italic">Tap any photo to enlarge.</p>
+        </div>
+        <div class="relative w-full overflow-hidden py-4">
+          <div id="carousel" class="carousel-track gap-4"></div>
+        </div>
+      </div>
+
+      <!-- What we do -->
+      <div class="space-y-6">
+        <div class="flex justify-between items-center border-b border-fm-purple/10 pb-4">
+          <div>
+            <h2 class="text-2xl font-serif font-bold">What We Do</h2>
+            <p class="font-serif italic text-xs text-slate-500">"Study to shew thyself approved unto God." — 2 Timothy 2:15 (KJV)</p>
+          </div>
+          <button onclick="switchView('ministry')" class="text-sm font-bold hover:underline">View Ministry <i class="fa-solid fa-arrow-right text-xs"></i></button>
+        </div>
+        <div id="home-cards" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
+      </div>
+
+      <!-- Mission trio -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-fm-purple text-white p-6 rounded-2xl space-y-3 shadow-lg">
+          <div class="w-10 h-10 rounded-xl bg-fm-gold/20 text-fm-gold flex items-center justify-center"><i class="fa-solid fa-bullseye"></i></div>
+          <h3 class="font-serif font-bold text-lg">Our Mission</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">To transform lives through the Word of God, prayer, and deliverance.</p>
+          <p class="font-serif italic text-[11px] text-fm-gold">"How beautiful... are the feet of him that bringeth good tidings." — Isaiah 52:7 (KJV)</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl space-y-3 border border-slate-100 shadow-sm">
+          <img src="20.jpg" alt="Divine Encounter service" class="w-full h-32 object-cover rounded-xl" loading="lazy" />
+          <div class="w-10 h-10 rounded-xl bg-fm-gold/10 text-fm-gold flex items-center justify-center"><i class="fa-solid fa-calendar-days"></i></div>
+          <h3 class="font-bold text-lg">Divine Encounter</h3>
+          <p class="text-xs text-slate-500 leading-relaxed">Our signature prayer and deliverance service.</p>
+          <p class="font-serif italic text-[11px] text-slate-400">"Upon mount Zion shall be deliverance." — Obadiah 1:17 (KJV)</p>
+          <button onclick="switchView('events')" class="text-[11px] font-bold text-fm-gold hover:underline">See the schedule →</button>
+        </div>
+        <div class="bg-white p-6 rounded-2xl space-y-3 border border-slate-100 shadow-sm">
+          <img src="1.jpg" alt="Congregation worshipping" class="w-full h-32 object-cover rounded-xl" loading="lazy" />
+          <div class="w-10 h-10 rounded-xl bg-fm-royal/10 text-fm-royal flex items-center justify-center"><i class="fa-solid fa-church"></i></div>
+          <h3 class="font-bold text-lg">Worship With Us</h3>
+          <p class="text-xs text-slate-500 leading-relaxed">All Saints' Anglican Chapel, Ughelli.</p>
+          <p class="font-serif italic text-[11px] text-slate-400">"I was glad... Let us go into the house of the Lord." — Psalm 122:1 (KJV)</p>
+          <button onclick="switchView('connect')" class="text-[11px] font-bold text-fm-royal hover:underline">Plan your visit →</button>
+        </div>
+      </div>
+
+      <!-- Counters -->
+      <div class="glass-card rounded-3xl p-6 sm:p-8 grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+        <div><div class="text-3xl font-black"><span class="counter" data-target="280">0</span>+</div><p class="text-[11px] font-bold uppercase tracking-wider text-slate-500 mt-1">Facebook Family</p></div>
+        <div><div class="text-3xl font-black text-fm-gold"><span class="counter" data-target="2">0</span></div><p class="text-[11px] font-bold uppercase tracking-wider text-slate-500 mt-1">Recurring Programmes</p></div>
+        <div><div class="text-3xl font-black text-fm-royal"><span class="counter" data-target="3">0</span></div><p class="text-[11px] font-bold uppercase tracking-wider text-slate-500 mt-1">Teaching Series</p></div>
+        <div><div class="text-3xl font-black text-fm-rose"><span class="counter" data-target="3">0</span></div><p class="text-[11px] font-bold uppercase tracking-wider text-slate-500 mt-1">Core Offerings</p></div>
+      </div>
+
+      <!-- Meet the Venerable -->
+      <div class="grid lg:grid-cols-2 gap-8 items-center bg-white rounded-3xl p-6 sm:p-8 border border-slate-100 shadow-sm">
+        <div>
+          <img src="14.jpg" alt="Ven. Onokpite ministering at the pulpit" class="w-full h-72 sm:h-96 object-cover rounded-2xl" loading="lazy" />
+        </div>
+        <div class="space-y-4">
+          <span class="text-[11px] font-black uppercase tracking-widest text-fm-gold">Meet the Venerable</span>
+          <h2 class="text-2xl sm:text-3xl font-serif font-bold">A Servant-Leader with a Heart for Restoration</h2>
+          <p class="text-sm text-slate-600 leading-relaxed">Ven. Freeborn Onokpite is an Anglican priest, theologian and public servant who combines deliverance ministry with active community service.</p>
+          <div class="verse-strip rounded-xl p-4">
+            <p class="font-serif italic text-sm">"This book of the law shall not depart out of thy mouth... then thou shalt have good success."</p>
+            <p class="text-[11px] font-bold text-fm-gold mt-1 tracking-widest uppercase">— Joshua 1:8 (KJV)</p>
+          </div>
+          <button onclick="switchView('about')" class="bg-fm-purple text-white px-6 py-3 rounded-xl text-xs font-extrabold uppercase tracking-wider hover:bg-fm-gold hover:text-fm-purple">Read His Story</button>
+        </div>
+      </div>
+
+      <!-- Latest teachings -->
+      <div id="latest-teachings" class="space-y-6 scroll-mt-28">
+        <div class="flex justify-between items-center border-b border-fm-purple/10 pb-4">
+          <div>
+            <h2 class="text-2xl font-serif font-bold">Latest Teachings</h2>
+            <p class="font-serif italic text-xs text-slate-500">"Thy word is a lamp unto my feet." — Psalm 119:105 (KJV)</p>
+          </div>
+          <a href="https://www.youtube.com/@FreebornMinistries" target="_blank" rel="noopener" class="text-sm font-bold hover:underline">All on YouTube <i class="fa-solid fa-arrow-right text-xs"></i></a>
+        </div>
+        <div id="video-grid" class="grid md:grid-cols-2 gap-6"></div>
+      </div>
+
+      <!-- Testimonies -->
+      <div class="glass-card rounded-3xl p-6 sm:p-10 space-y-6 overflow-hidden">
+        <div class="flex justify-between items-center">
+          <div>
+            <span class="text-[11px] font-black uppercase tracking-widest text-fm-gold">Testimonies</span>
+            <h2 class="text-2xl font-serif font-bold">Lives Touched by God</h2>
+            <p class="font-serif italic text-xs text-slate-500">"They overcame him by the blood of the Lamb, and by the word of their testimony." — Revelation 12:11 (KJV)</p>
+          </div>
+          <div class="flex gap-2">
+            <button onclick="moveTesti(-1)" class="w-9 h-9 rounded-full bg-fm-purple text-white hover:bg-fm-gold"><i class="fa-solid fa-chevron-left text-xs"></i></button>
+            <button onclick="moveTesti(1)" class="w-9 h-9 rounded-full bg-fm-purple text-white hover:bg-fm-gold"><i class="fa-solid fa-chevron-right text-xs"></i></button>
+          </div>
+        </div>
+        <div class="overflow-hidden">
+          <div id="testi-track" class="testi-track flex gap-4">
+            <div class="min-w-full sm:min-w-[48%] bg-white rounded-2xl p-6 border border-slate-100 space-y-3">
+              <div class="text-fm-gold text-sm">★★★★★</div>
+              <p class="text-xs text-slate-600 italic leading-relaxed">"Worshipping with this ministry in Ughelli transformed my spiritual journey. The word taught here isn't just encouraging—it's deeply rooted, practical, and has helped my family experience continuous peace and breakthrough in our daily lives."</p>
+              <p class="text-xs font-bold">— Bro. Emmanuel O. <span class="font-normal text-slate-400">• Sunday Service</span></p>
+            </div>
+            <div class="min-w-full sm:min-w-[48%] bg-white rounded-2xl p-6 border border-slate-100 space-y-3">
+              <div class="text-fm-gold text-sm">★★★★★</div>
+              <p class="text-xs text-slate-600 italic leading-relaxed">"I attended Divine Encounter carrying a heavy heart over a long-standing financial stagnation. During the prayer session, the power of God was so tangible. Within two weeks after the program, God opened doors I never imagined!"</p>
+              <p class="text-xs font-bold">— Sis. Blessing A. <span class="font-normal text-slate-400">• Divine Encounter</span></p>
+            </div>
+            <div class="min-w-full sm:min-w-[48%] bg-white rounded-2xl p-6 border border-slate-100 space-y-3">
+              <div class="text-fm-gold text-sm">★★★★★</div>
+              <p class="text-xs text-slate-600 italic leading-relaxed">"The counseling and mentorship sessions gave me clarity when I felt completely directionless. The biblical guidance, patience, and actionable wisdom I received helped me rebuild my confidence and align my career with God's purpose."</p>
+              <p class="text-xs font-bold">— Dr. Chinedu K. <span class="font-normal text-slate-400">• Mentorship</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-center gap-2" id="testi-dots">
+          <span class="tab-dot w-2 h-2 rounded-full bg-fm-gold"></span>
+          <span class="tab-dot w-2 h-2 rounded-full bg-slate-300"></span>
+          <span class="tab-dot w-2 h-2 rounded-full bg-slate-300"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ VIEW: ABOUT ============ -->
+    <section id="view-about" class="hidden space-y-10 fade-up">
+      <div>
+        <img src="54.jpeg" alt="Ven. Onokpite preaching" class="w-full h-48 sm:h-72 object-cover rounded-3xl shadow-md" loading="lazy" />
+      </div>
+
+      <div class="glass-card rounded-3xl p-8 sm:p-12 space-y-5">
+        <span class="text-[11px] font-black uppercase tracking-widest text-fm-gold">About the Venerable</span>
+        <h2 class="text-3xl sm:text-4xl font-serif font-bold">Venerable Freeborn Avwerosuoghene Onokpite (JP)</h2>
+        <div class="verse-strip rounded-xl p-4">
+          <p class="font-serif italic text-sm">"Seest thou a man diligent in his business? he shall stand before kings."</p>
+          <p class="text-[11px] font-bold text-fm-gold mt-1 tracking-widest uppercase">— Proverbs 22:29 (KJV)</p>
+        </div>
+        <p class="text-sm text-slate-600 leading-relaxed">A seasoned Anglican priest, theologian, and public servant based in Warri, Delta State. With a calling rooted in deliverance, restoration, and servant-leadership, he combines spiritual ministry with active community service.</p>
+
+        <div class="grid md:grid-cols-3 gap-4 pt-2">
+          <div class="bg-white p-5 rounded-2xl border border-slate-100">
+            <img src="16.jpg" alt="Church service" class="w-full h-28 object-cover rounded-xl mb-3" loading="lazy" />
+            <i class="fa-solid fa-church text-fm-gold"></i>
+            <h4 class="font-bold text-sm mt-2">Ecclesiastical Career</h4>
+            <p class="text-xs text-slate-500 mt-1">Served in key parishes including All Saints' Anglican Chapel (DSC) and Christ's Anglican Church (Okwagbe Waterside). Collated as Venerable in March 2022.</p>
+          </div>
+          <div class="bg-white p-5 rounded-2xl border border-slate-100">
+            <img src="hero.jpg" alt="Community gathering" class="w-full h-28 object-cover rounded-xl mb-3" loading="lazy" />
+            <i class="fa-solid fa-landmark text-fm-royal"></i>
+            <h4 class="font-bold text-sm mt-2">Public Service</h4>
+            <p class="text-xs text-slate-500 mt-1">Appointed in December 2023 as State Deputy Coordinator (Central) on Religious Matters, Delta State.</p>
+          </div>
+          <div class="bg-white p-5 rounded-2xl border border-slate-100">
+            <img src="cover.jpg" alt="Bible study" class="w-full h-28 object-cover rounded-xl mb-3" loading="lazy" />
+            <i class="fa-solid fa-book-open text-fm-rose"></i>
+            <h4 class="font-bold text-sm mt-2">Scholarship</h4>
+            <p class="text-xs text-slate-500 mt-1">A researcher in African Christianity who has documented charismatic movements in the Niger Delta.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="space-y-4">
+        <h2 class="text-2xl font-serif font-bold border-b border-fm-purple/10 pb-4">Research &amp; Writings</h2>
+        <p class="font-serif italic text-xs text-slate-500">"Get wisdom, get understanding." — Proverbs 4:7 (KJV)</p>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="bg-white p-5 rounded-2xl border-l-4 border-l-fm-gold shadow-sm">
+            <p class="font-bold text-sm">Emergence of Charismatic Movement in Urhobo, Niger Delta, Nigeria (2022)</p>
+            <p class="text-xs text-slate-500 mt-1">Saudi Journal of Humanities and Social Sciences</p>
+          </div>
+          <div class="bg-white p-5 rounded-2xl border-l-4 border-l-fm-royal shadow-sm">
+            <p class="font-bold text-sm">Anglican Fasting and Prayer Society and Development of Christianity in Urhobo, 1990-2017 (2022)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ VIEW: MINISTRY ============ -->
+    <section id="view-ministry" class="hidden space-y-8 fade-up">
+      <div>
+        <span class="text-[11px] font-black uppercase tracking-widest text-fm-gold">Ministry &amp; Services</span>
+        <h2 class="text-3xl font-serif font-bold mt-1">How We Serve</h2>
+        <p class="text-xs text-slate-500 mt-1">Tap a card for full details, photos and scriptures.</p>
+        <div class="verse-strip rounded-xl p-4 mt-3">
+          <p class="font-serif italic text-sm">"And he gave some, apostles; and some, prophets... for the perfecting of the saints, for the work of the ministry."</p>
+          <p class="text-[11px] font-bold text-fm-gold mt-1 tracking-widest uppercase">— Ephesians 4:11-12 (KJV)</p>
+        </div>
+      </div>
+
+      <div id="ministry-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
+
+      <div class="space-y-4">
+        <h2 class="text-2xl font-serif font-bold border-b border-fm-purple/10 pb-4">Teaching Series</h2>
+        <p class="font-serif italic text-xs text-slate-500">"Thy word have I hid in mine heart." — Psalm 119:11 (KJV)</p>
+        <div id="teaching-grid" class="grid md:grid-cols-3 gap-4"></div>
+      </div>
+    </section>
+
+    <!-- ============ VIEW: GALLERY ============ -->
+    <section id="view-gallery" class="hidden space-y-8 fade-up">
+      <div class="flex flex-col sm:flex-row justify-between sm:items-end gap-4">
+        <div>
+          <span class="text-[11px] font-black uppercase tracking-widest text-fm-gold">Gallery</span>
+          <h2 class="text-3xl font-serif font-bold mt-1">Moments of Faith</h2>
+          <p class="font-serif italic text-xs text-slate-500 mt-1">"O come, let us worship and bow down." — Psalm 95:6 (KJV)</p>
+        </div>
+        <div class="flex flex-wrap gap-2 text-[11px] font-bold uppercase">
+          <button onclick="setFilter('all',this)" class="filter-btn active px-4 py-2 rounded-full border border-fm-purple/20">All</button>
+          <button onclick="setFilter('worship',this)" class="filter-btn px-4 py-2 rounded-full border border-fm-purple/20">Worship</button>
+          <button onclick="setFilter('encounter',this)" class="filter-btn px-4 py-2 rounded-full border border-fm-purple/20">Divine Encounter</button>
+          <button onclick="setFilter('community',this)" class="filter-btn px-4 py-2 rounded-full border border-fm-purple/20">Community</button>
+        </div>
+      </div>
+      <div id="gallery-grid" class="grid grid-cols-2 md:grid-cols-4 gap-3"></div>
+    </section>
+
+    <!-- ============ VIEW: EVENTS ============ -->
+    <section id="view-events" class="hidden space-y-8 fade-up">
+      <div>
+        <span class="text-[11px] font-black uppercase tracking-widest text-fm-gold">Calendar</span>
+        <h2 class="text-3xl font-serif font-bold mt-1">Programmes &amp; Events</h2>
+        <div class="verse-strip rounded-xl p-4 mt-3">
+          <p class="font-serif italic text-sm">"And it shall come to pass afterward, that I will pour out my spirit upon all flesh."</p>
+          <p class="text-[11px] font-bold text-fm-gold mt-1 tracking-widest uppercase">— Joel 2:28 (KJV)</p>
+        </div>
+      </div>
+
+      <div>
+        <img src="20.jpg" alt="Divine Encounter DSC congregation" class="w-full h-40 sm:h-56 object-cover rounded-3xl shadow-md" loading="lazy" />
+      </div>
+
+      <div id="events-grid" class="grid md:grid-cols-2 gap-6"></div>
+
+      <div class="bg-white p-6 rounded-2xl border border-dashed border-fm-purple/20 text-center space-y-3">
+        <img src="54.jpeg" alt="Ven. Onokpite ministering" class="w-full h-36 object-cover rounded-xl" loading="lazy" />
+        <p class="text-sm text-slate-600">Want Ven. Onokpite to speak at your event?</p>
+        <p class="font-serif italic text-xs text-slate-400">"Go ye into all the world, and preach the gospel." — Mark 16:15 (KJV)</p>
+        <button onclick="switchView('connect')" class="bg-fm-purple text-white px-6 py-3 rounded-xl text-xs font-extrabold uppercase tracking-wider hover:bg-fm-gold hover:text-fm-purple">Send an Invitation</button>
+      </div>
+    </section>
+
+    <!-- ============ VIEW: GIVE ============ -->
+    <section id="view-give" class="hidden space-y-10 fade-up">
+      <div class="relative overflow-hidden bg-fm-purple text-white rounded-3xl p-8 sm:p-12 space-y-3">
+        <img src="17.jpg" alt="" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover opacity-20" loading="lazy" />
+        <div class="relative">
+          <span class="text-[11px] font-black uppercase tracking-widest text-fm-gold">Partner With Us</span>
+          <h2 class="text-3xl font-serif font-bold">Support the Work of the Ministry</h2>
+          <p class="text-sm text-slate-300 max-w-2xl leading-relaxed">Your giving helps us teach the Word, minister deliverance and mentor the next generation.</p>
+          <p class="font-serif italic text-sm text-fm-gold mt-2">"God loveth a cheerful giver." — 2 Corinthians 9:7 (KJV)</p>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <button onclick="selectTier(this,'Seed','A one-time gift towards the ministry.')" class="tier-card glass-card p-6 rounded-2xl text-left space-y-2 border-2 border-transparent transition-all">
+          <i class="fa-solid fa-seedling text-fm-gold text-xl"></i>
+          <h3 class="font-bold text-lg">Seed Offering</h3>
+          <p class="text-xs text-slate-500">A one-time gift of any amount.</p>
+          <p class="font-serif italic text-[11px] text-slate-400">"In the morning sow thy seed." — Ecclesiastes 11:6 (KJV)</p>
+        </button>
+        <button onclick="selectTier(this,'Partner','A monthly gift to sustain outreach and teaching.')" class="tier-card glass-card p-6 rounded-2xl text-left space-y-2 border-2 border-transparent transition-all">
+          <i class="fa-solid fa-handshake text-fm-royal text-xl"></i>
+          <h3 class="font-bold text-lg">Ministry Partner</h3>
+          <p class="text-xs text-slate-500">A monthly gift to sustain the work.</p>
+          <p class="font-serif italic text-[11px] text-slate-400">"Bear ye one another's burdens." — Galatians 6:2 (KJV)</p>
+        </button>
+        <button onclick="selectTier(this,'Covenant','A pledge toward special programmes and projects.')" class="tier-card glass-card p-6 rounded-2xl text-left space-y-2 border-2 border-transparent transition-all">
+          <i class="fa-solid fa-dove text-fm-rose text-xl"></i>
+          <h3 class="font-bold text-lg">Covenant Pledge</h3>
+          <p class="text-xs text-slate-500">Support special programmes and projects.</p>
+          <p class="font-serif italic text-[11px] text-slate-400">"Vow, and pay unto the Lord." — Psalm 76:11 (KJV)</p>
+        </button>
+      </div>
+
+      <p id="tier-output" class="text-center text-xs font-bold text-fm-gold">Choose a giving option above.</p>
+
+      <div class="grid lg:grid-cols-2 gap-8">
+        <div class="glass-card rounded-3xl p-6 space-y-3">
+          <h3 class="font-serif font-bold text-xl">Give by Bank Transfer</h3>
+          <div class="text-xs space-y-1 bg-white p-4 rounded-xl border border-slate-100">
+            <p><b>Bank:</b> [Bank Name]</p>
+            <p><b>Account Name:</b> [Account Name]</p>
+            <p><b>Account Number:</b> [0000000000]</p>
+          </div>
+          <button onclick="copyText('[Bank Name] | [Account Name] | [Account Number]')" class="text-xs font-bold text-fm-gold hover:underline"><i class="fa-regular fa-copy mr-1"></i>Copy giving details</button>
+        </div>
+        <div class="glass-card rounded-3xl p-6 space-y-3">
+          <h3 class="font-serif font-bold text-xl">Make a Pledge</h3>
+          <form onsubmit="handlePledge(event)" class="space-y-3 text-xs">
+            <input id="pledge-name" required placeholder="Your name" class="w-full p-3.5 rounded-xl border border-slate-200 bg-white" />
+            <input id="pledge-amt" required placeholder="Amount (₦)" class="w-full p-3.5 rounded-xl border border-slate-200 bg-white" />
+            <button class="w-full bg-[#25D366] text-white font-extrabold py-3.5 rounded-xl uppercase tracking-wider"><i class="fa-brands fa-whatsapp mr-2"></i>Send Pledge via WhatsApp</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ VIEW: CONNECT ============ -->
+    <section id="view-connect" class="hidden space-y-10 fade-up">
+      <div class="verse-strip rounded-2xl p-5">
+        <p class="font-serif italic text-sm">"Call unto me, and I will answer thee, and shew thee great and mighty things."</p>
+        <p class="text-[11px] font-bold text-fm-gold mt-1 tracking-widest uppercase">— Jeremiah 33:3 (KJV)</p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-8">
+        <!-- Contact form -->
+        <div class="glass-card rounded-3xl p-6 sm:p-8 space-y-4">
+          <h2 class="text-2xl font-serif font-bold">Connect with Ven. Onokpite</h2>
+          <img src="sir.jpg" alt="Ven. Onokpite" class="w-full h-44 object-cover rounded-2xl" loading="lazy" />
+          <form onsubmit="handleContact(event)" class="space-y-3 text-xs">
+            <input id="nameInput" required placeholder="Your name" class="w-full p-3.5 rounded-xl border border-slate-200 bg-white" />
+            <select id="purposeInput" class="w-full p-3.5 rounded-xl border border-slate-200 bg-white">
+              <option>Speaking Invitation</option>
+              <option>Counselling / Mentorship</option>
+              <option>Deliverance Session</option>
+              <option>General Enquiry</option>
+            </select>
+            <textarea id="messageInput" rows="4" placeholder="Your message" class="w-full p-3.5 rounded-xl border border-slate-200 bg-white"></textarea>
+            <button class="w-full bg-[#25D366] text-white font-extrabold py-3.5 rounded-xl uppercase tracking-wider"><i class="fa-brands fa-whatsapp mr-2"></i>Send via WhatsApp</button>
+          </form>
+        </div>
+
+        <!-- Direct links -->
+        <div class="space-y-3">
+          <a href="https://wa.me/2348034040148" target="_blank" rel="noopener" class="flex items-center gap-4 bg-white p-5 rounded-2xl border border-slate-100 hover:-translate-y-1 transition-transform">
+            <i class="fa-brands fa-whatsapp text-2xl text-[#25D366]"></i>
+            <div><p class="font-bold text-sm">WhatsApp</p><p class="text-xs text-slate-500">+234 803 404 0148</p></div>
+          </a>
+          <a href="https://web.facebook.com/profile.php?id=61566638474595" target="_blank" rel="noopener" class="flex items-center gap-4 bg-white p-5 rounded-2xl border border-slate-100 hover:-translate-y-1 transition-transform">
+            <i class="fa-brands fa-facebook text-2xl text-[#1877F2]"></i>
+            <div><p class="font-bold text-sm">Freeborn Ministries on Facebook</p><p class="text-xs text-slate-500">Daily teachings and updates</p></div>
+          </a>
+          <a href="https://www.youtube.com/@FreebornMinistries" target="_blank" rel="noopener" class="flex items-center gap-4 bg-white p-5 rounded-2xl border border-slate-100 hover:-translate-y-1 transition-transform">
+            <i class="fa-brands fa-youtube text-2xl text-red-600"></i>
+            <div><p class="font-bold text-sm">YouTube</p><p class="text-xs text-slate-500">@FreebornMinistries</p></div>
+          </a>
+          <a href="https://m.me/61566638474595" target="_blank" rel="noopener" class="flex items-center gap-4 bg-white p-5 rounded-2xl border border-slate-100 hover:-translate-y-1 transition-transform">
+            <i class="fa-brands fa-facebook-messenger text-2xl text-[#0084FF]"></i>
+            <div><p class="font-bold text-sm">Messenger</p><p class="text-xs text-slate-500">Message Freeborn Ministries</p></div>
+          </a>
+          <a href="mailto:freebornministries01@gmail.com" class="flex items-center gap-4 bg-white p-5 rounded-2xl border border-slate-100 hover:-translate-y-1 transition-transform">
+            <i class="fa-solid fa-envelope text-2xl text-fm-gold"></i>
+            <div><p class="font-bold text-sm">Email</p><p class="text-xs text-slate-500">freebornministries01@gmail.com</p></div>
+          </a>
+          <div class="grid grid-cols-3 gap-2">
+            <img src="2.jpg" alt="Worship" class="h-20 w-full object-cover rounded-xl" loading="lazy" />
+            <img src="5.jpg" alt="Fellowship" class="h-20 w-full object-cover rounded-xl" loading="lazy" />
+            <img src="10.jpg" alt="Service" class="h-20 w-full object-cover rounded-xl" loading="lazy" />
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <div class="space-y-4">
+        <h2 class="text-2xl font-serif font-bold border-b border-fm-purple/10 pb-4">Frequently Asked Questions</h2>
+        <p class="font-serif italic text-xs text-slate-500">"Ask, and it shall be given you." — Matthew 7:7 (KJV)</p>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="accordion-item bg-white rounded-2xl border border-slate-100 overflow-hidden">
+            <button onclick="toggleAccordion(this)" class="w-full flex justify-between items-center p-5 text-left font-bold text-sm">What is Ven. Onokpite's role in the Delta State Government?<i class="fa-solid fa-chevron-down accordion-chevron text-fm-gold text-xs ml-3"></i></button>
+            <div class="accordion-body px-5 pb-5 text-xs text-slate-500 leading-relaxed">He serves as State Deputy Coordinator (Central) on Religious Matters, advising on religious affairs and fostering peace.</div>
+          </div>
+          <div class="accordion-item bg-white rounded-2xl border border-slate-100 overflow-hidden">
+            <button onclick="toggleAccordion(this)" class="w-full flex justify-between items-center p-5 text-left font-bold text-sm">How can I invite Ven. Onokpite to speak?<i class="fa-solid fa-chevron-down accordion-chevron text-fm-gold text-xs ml-3"></i></button>
+            <div class="accordion-body px-5 pb-5 text-xs text-slate-500 leading-relaxed">Use the contact form on this page, message us on WhatsApp, or reach out through the Freeborn Ministries Facebook page.</div>
+          </div>
+          <div class="accordion-item bg-white rounded-2xl border border-slate-100 overflow-hidden">
+            <button onclick="toggleAccordion(this)" class="w-full flex justify-between items-center p-5 text-left font-bold text-sm">Does the ministry offer counselling?<i class="fa-solid fa-chevron-down accordion-chevron text-fm-gold text-xs ml-3"></i></button>
+            <div class="accordion-body px-5 pb-5 text-xs text-slate-500 leading-relaxed">Yes. Ven. Onokpite provides mentorship and spiritual counselling, particularly for those seeking deliverance and restoration.</div>
+          </div>
+          <div class="accordion-item bg-white rounded-2xl border border-slate-100 overflow-hidden">
+            <button onclick="toggleAccordion(this)" class="w-full flex justify-between items-center p-5 text-left font-bold text-sm">Where do you worship?<i class="fa-solid fa-chevron-down accordion-chevron text-fm-gold text-xs ml-3"></i></button>
+            <div class="accordion-body px-5 pb-5 text-xs text-slate-500 leading-relaxed">All Saints' Anglican Chapel, DSC Township, Warri, Delta State, Nigeria, in the Anglican Diocese of Ughelli.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= Footer ================= -->
+  <footer class="bg-fm-purple text-white pt-14 pb-24 md:pb-10 border-t-4 border-fm-gold">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10 pb-10 border-b border-white/10">
+      <div class="space-y-3">
+        <span class="font-serif font-bold text-xl tracking-wider uppercase">Freeborn Ministries</span>
+        <p class="text-xs text-slate-300 leading-relaxed">Transforming lives through the Word of God, prayer, and deliverance. Based in the Anglican Diocese of Ughelli.</p>
+        <p class="font-serif italic text-xs text-fm-gold">"The Lord bless thee, and keep thee." — Numbers 6:24 (KJV)</p>
+      </div>
+      <div>
+        <h4 class="text-xs font-bold uppercase tracking-widest text-fm-gold mb-3">Navigation</h4>
+        <ul class="space-y-2 text-xs text-slate-300">
+          <li><button onclick="switchView('home')">Home</button></li>
+          <li><button onclick="switchView('about')">About</button></li>
+          <li><button onclick="switchView('ministry')">Ministry</button></li>
+          <li><button onclick="switchView('gallery')">Gallery</button></li>
+          <li><button onclick="switchView('events')">Events</button></li>
+          <li><button onclick="switchView('give')">Give</button></li>
+          <li><button onclick="switchView('connect')">Connect</button></li>
+        </ul>
+      </div>
+      <div class="space-y-2.5 text-xs text-slate-300">
+        <h4 class="text-xs font-bold uppercase tracking-widest text-fm-gold mb-3">Contact</h4>
+        <p><i class="fa-solid fa-location-dot text-fm-gold mr-2"></i>All Saints' Chapel, DSC Township, Warri</p>
+        <p><i class="fa-brands fa-whatsapp text-[#25D366] mr-2"></i>+234 803 404 0148</p>
+        <p><i class="fa-solid fa-envelope text-fm-gold mr-2"></i>freebornministries01@gmail.com</p>
+        <div class="flex gap-4 text-xl pt-2">
+          <a href="https://web.facebook.com/profile.php?id=61566638474595" target="_blank" rel="noopener"><i class="fa-brands fa-facebook"></i></a>
+          <a href="https://www.youtube.com/@FreebornMinistries" target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://m.me/61566638474595" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-messenger"></i></a>
+          <a href="https://wa.me/2348034040148" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-6 pt-6 text-center text-[11px] text-slate-400 flex flex-col sm:flex-row justify-between gap-2">
+      <span>&copy; 2026 Freeborn Ministries, Warri, Delta State, Nigeria</span>
+      <span>Word • Prayer • Deliverance</span>
+    </div>
+  </footer>
+
+  <!-- ================= Mobile nav ================= -->
+  <nav class="lg:hidden fixed bottom-4 left-1/2 -translate-x-1/2 w-[92%] max-w-md z-50">
+    <div class="glass bg-fm-purple/95 text-white rounded-full px-3 py-3 flex justify-around items-center shadow-2xl border border-white/10">
+      <button onclick="switchView('home')" id="m-nav-home" class="flex flex-col items-center w-11"><i class="fa-solid fa-house"></i><span class="text-[9px] mt-1 font-bold">Home</span></button>
+      <button onclick="switchView('about')" id="m-nav-about" class="flex flex-col items-center w-11"><i class="fa-solid fa-user-tie"></i><span class="text-[9px] mt-1 font-bold">About</span></button>
+      <button onclick="switchView('ministry')" id="m-nav-ministry" class="flex flex-col items-center w-11"><i class="fa-solid fa-hands-praying"></i><span class="text-[9px] mt-1 font-bold">Ministry</span></button>
+      <button onclick="switchView('gallery')" id="m-nav-gallery" class="flex flex-col items-center w-11"><i class="fa-solid fa-images"></i><span class="text-[9px] mt-1 font-bold">Gallery</span></button>
+      <button onclick="switchView('events')" id="m-nav-events" class="flex flex-col items-center w-11"><i class="fa-solid fa-calendar-days"></i><span class="text-[9px] mt-1 font-bold">Events</span></button>
+      <button onclick="switchView('give')" id="m-nav-give" class="flex flex-col items-center w-11"><i class="fa-solid fa-heart"></i><span class="text-[9px] mt-1 font-bold">Give</span></button>
+      <button onclick="switchView('connect')" id="m-nav-connect" class="flex flex-col items-center w-11"><i class="fa-solid fa-envelope"></i><span class="text-[9px] mt-1 font-bold">Connect</span></button>
+    </div>
+  </nav>
+
+  <!-- ================= Lightbox ================= -->
+  <div id="lightbox" class="fixed inset-0 z-[60] hidden items-center justify-center p-4 bg-fm-purple/85" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="Preview" class="max-h-[80vh] max-w-full rounded-2xl shadow-2xl border-4 border-white" />
+    <p id="lightbox-cap" class="absolute bottom-6 text-white text-xs font-serif italic"></p>
+    <button class="absolute top-5 right-5 w-10 h-10 rounded-full bg-white text-fm-purple font-bold"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+
+  <!-- Toast + back-to-top -->
+  <div id="toast" class="fixed top-24 left-1/2 -translate-x-1/2 z-50 hidden px-5 py-3 rounded-xl shadow-2xl text-xs font-bold uppercase tracking-wider text-white bg-fm-purple/95 border border-fm-gold/30"></div>
+  <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="fixed bottom-24 lg:bottom-8 right-4 z-40 w-11 h-11 rounded-full bg-fm-purple text-fm-gold shadow-xl border border-fm-gold/40"><i class="fa-solid fa-chevron-up"></i></button>
+
+  <!-- ================= Modal (shared shell, image on every modal) ================= -->
+  <div id="modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
+    <div class="absolute inset-0 bg-fm-purple/70 backdrop-blur-sm" onclick="closeModal()"></div>
+    <div class="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl z-10 max-h-[90vh] overflow-y-auto">
+      <div id="modal-image" class="h-52 w-full overflow-hidden rounded-t-3xl bg-fm-purple">
+        <img id="modal-img" src="" alt="" class="w-full h-full object-cover" />
+      </div>
+      <div class="p-6 sm:p-8 space-y-4">
+        <div class="flex justify-between items-start gap-3">
+          <div>
+            <span id="modal-tag" class="text-[10px] font-black uppercase tracking-widest text-fm-gold"></span>
+            <h3 id="modal-title" class="text-2xl font-serif font-bold"></h3>
+            <p id="modal-verse" class="font-serif italic text-xs text-slate-500 mt-1"></p>
+          </div>
+          <button onclick="closeModal()" class="w-8 h-8 rounded-full bg-fm-rose text-white flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div id="modal-body" class="text-xs text-slate-600 leading-relaxed space-y-3"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+    SCRIPTS — kept in small readable blocks
+  ============================================================ -->
+  <script>
+    // ---------- 1. Global config ----------
+    const WA_NUMBER = '2348034040148';
+
+    // ---------- 2. Photo library (all files exist locally) ----------
+    const GALLERY = [
+      { src: '1.jpg',     cat: 'worship',   caption: 'Hands lifted in worship' },
+      { src: '2.jpg',     cat: 'worship',   caption: 'Worship at All Saints' },
+      { src: '3.jpg',     cat: 'worship',   caption: 'Praise and prayer' },
+      { src: '4.jpg',     cat: 'community', caption: 'Fellowship together' },
+      { src: '5.jpg',     cat: 'community', caption: 'Church family' },
+      { src: '6.jpg',     cat: 'worship',   caption: 'Sunday service' },
+      { src: '7.jpg',     cat: 'community', caption: 'Community gathering' },
+      { src: '8.jpg',     cat: 'worship',   caption: 'Call to worship' },
+      { src: '9.jpg',     cat: 'encounter', caption: 'Divine Encounter moment' },
+      { src: '10.jpg',    cat: 'worship',   caption: 'Morning praise' },
+      { src: '11.jpg',    cat: 'community', caption: 'Brethren in fellowship' },
+      { src: '12.jpg',    cat: 'worship',   caption: 'Glory and honour' },
+      { src: '13.jpg',    cat: 'encounter', caption: 'Prayer session' },
+      { src: '14.jpg',    cat: 'encounter', caption: 'Ven. Onokpite at the pulpit' },
+      { src: '16.jpg',    cat: 'encounter', caption: 'Ministering the Word' },
+      { src: '17.jpg',    cat: 'worship',   caption: 'Preaching Christ' },
+      { src: '18.jpg',    cat: 'encounter', caption: 'Word and deliverance' },
+      { src: '20.jpg',    cat: 'encounter', caption: 'Divine Encounter DSC' },
+      { src: 'hero.jpg',  cat: 'worship',   caption: 'Worship celebration' },
+      { src: 'cover.jpg', cat: 'community', caption: 'Ministry cover moment' },
+      { src: 'main.jpg',  cat: 'worship',   caption: 'Service highlight' },
+      { src: 'sir.jpg',   cat: 'encounter', caption: 'The Venerable ministering' },
+    ];
+
+    const CAROUSEL = ['sir.jpg', '14.jpg', '16.jpg', '17.jpg', '18.jpg', '20.jpg', '1.jpg', 'hero.jpg', 'cover.jpg', 'main.jpg', '7.jpg'];
+
+    const VIDEOS = [
+      { src: 'https://www.youtube.com/embed/r5l4ZQ4K3F4?si=0sHeGSA6GnQUs8GG', title: 'The Servant-Leader’s Heart', sub: 'Watch here • Leadership' },
+      { src: 'https://www.youtube.com/embed/xRVAC_aWI0g?si=4Wah8v-VY_dQSq9r', title: 'Understanding God as Your Source', sub: 'Watch here • Faith' },
+    ];
+
+    // ---------- 3. Ministry services (detailed modals) ----------
+    const SERVICES = [
+      {
+        icon: 'fa-link-slash', color: 'fm-gold', tag: 'Core Offering',
+        title: 'Deliverance Sessions',
+        image: '14.jpg',
+        verse: '"Upon mount Zion shall be deliverance, and there shall be holiness." — Obadiah 1:17 (KJV)',
+        desc: 'Breaking spiritual barriers and family yokes through the Word of God, prayer and faith.',
+        points: ['Yoke-breaking prayer and renunciation', 'Word-based counselling and confession', 'Personal and family restoration', 'Follow-up and discipleship'],
+        prepare: 'Come with a repentant heart, a notebook, and one fasting morning if you are able.',
+        meta: 'Divine Encounter + by appointment • All Saints’ Chapel, Ughelli'
+      },
+      {
+        icon: 'fa-people-group', color: 'fm-royal', tag: 'Core Offering',
+        title: 'Mentorship',
+        image: '54.jpeg',
+        verse: '"Train up a child in the way he should go." — Proverbs 22:6 (KJV)',
+        desc: 'Training and guidance for younger clergy, youth and families — including Anglican Youth Fellowship.',
+        points: ['Clergy and worker mentorship', 'Youth purpose and career guidance', 'Marriage and family counselling', 'Leadership and character building'],
+        prepare: 'Write down 3 questions or goals you want guidance on before you come.',
+        meta: 'Weekly by request • In person & WhatsApp'
+      },
+      {
+        icon: 'fa-book-bible', color: 'fm-rose', tag: 'Core Offering',
+        title: 'Biblical Teaching',
+        image: '66.jpeg',
+        verse: '"Study to shew thyself approved unto God." — 2 Timothy 2:15 (KJV)',
+        desc: 'In-depth biblical exposition including the series “Protocol for Life in the Spirit”.',
+        points: ['Expository teaching series', 'Protocol for Life in the Spirit', 'Topical studies on source and service', 'Q&A and study notes'],
+        prepare: 'Bring your Bible and a jotter — teaching notes are shared after each session.',
+        meta: 'Sundays + YouTube • @FreebornMinistries'
+      }
+    ];
+
+    // ---------- 4. Teaching series (detailed modals) ----------
+    const TEACHINGS = [
+      {
+        title: 'The Servant-Leader’s Heart', image: 'sir.jpg',
+        verse: '"Whosoever will be chief among you, let him be your servant." — Matthew 20:27 (KJV)',
+        desc: 'Humility, obedience and leading like Christ — for workers, clergy and professionals.',
+        points: ['Mark 10:45 — He came to serve', 'Humility before honour', 'Serving in hidden and public places']
+      },
+      {
+        title: 'Understanding God as Your Source', image: '17.jpg',
+        verse: '"My God shall supply all your need." — Philippians 4:19 (KJV)',
+        desc: 'Faith for provision — trusting God beyond salary, connections or circumstance.',
+        points: ['Psalm 23:1 — The Lord is my shepherd', 'Breaking anxiety about provision', 'Sowing, work and stewardship']
+      },
+      {
+        title: 'Deliverance & Restoration', image: '20.jpg',
+        verse: '"If the Son therefore shall make you free, ye shall be free indeed." — John 8:36 (KJV)',
+        desc: 'Freedom from yokes and restoration to purpose — the heart of Divine Encounter.',
+        points: ['Obadiah 1:17 — Zion deliverance', 'Breaking family patterns', 'Walking in newness of life']
+      }
+    ];
+
+    // ---------- 5. Events (detailed modals) ----------
+    const EVENTS = [
+      {
+        label: 'Recurring', labelColor: 'text-fm-gold', border: 'border-l-fm-gold',
+        title: 'Divine Encounter', image: '20.jpg',
+        verse: '"Where the Spirit of the Lord is, there is liberty." — 2 Corinthians 3:17 (KJV)',
+        desc: 'Prayer and deliverance service. Day and time to be confirmed with the ministry.',
+        points: ['Deep worship and intercession', 'Deliverance ministration', 'Testimonies and thanksgiving'],
+        meta: 'All Saints’ Chapel, DSC Township • Come early, come fasting'
+      },
+      {
+        label: 'Sunday', labelColor: 'text-fm-royal', border: 'border-l-fm-royal',
+        title: 'Worship Service', image: '1.jpg',
+        verse: '"I was glad when they said unto me, Let us go into the house of the Lord." — Psalm 122:1 (KJV)',
+        desc: 'All Saints’ Anglican Chapel, DSC Township, Warri. Service times to be confirmed.',
+        points: ['Anglican liturgy and hymns', 'Word and Holy Communion (as scheduled)', 'Welcome for visitors and families'],
+        meta: 'Sundays • Families and children welcome'
+      }
+    ];
+
+    // ---------- 6. Card renderers ----------
+    function serviceCardHTML(s, i) {
+      return `
+        <article onclick="openServiceModal(${i})" class="glass-card p-6 rounded-2xl border-l-4 border-l-${s.color} space-y-3 cursor-pointer hover:-translate-y-1 transition-transform">
+          <img src="${s.image}" alt="${s.title}" loading="lazy" class="w-full h-36 object-cover rounded-xl" />
+          <div class="w-10 h-10 rounded-lg bg-${s.color}/10 text-${s.color} flex items-center justify-center"><i class="fa-solid ${s.icon}"></i></div>
+          <h3 class="font-bold text-lg">${s.title}</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">${s.desc}</p>
+          <span class="text-[11px] font-bold text-${s.color}">Learn more →</span>
+        </article>`;
+    }
+
+    function teachingCardHTML(t, i) {
+      return `
+        <button onclick="openTeachingModal(${i})" class="bg-white p-5 rounded-2xl border border-slate-100 text-left hover:-translate-y-1 transition-transform">
+          <img src="${t.image}" alt="${t.title}" loading="lazy" class="w-full h-28 object-cover rounded-xl mb-3" />
+          <p class="font-bold text-sm"><i class="fa-solid fa-book-bible text-fm-gold mr-2"></i>${t.title}</p>
+          <span class="text-[11px] font-bold text-fm-gold">Open study →</span>
+        </button>`;
+    }
+
+    function eventCardHTML(e, i) {
+      return `
+        <button onclick="openEventModal(${i})" class="glass-card p-6 rounded-2xl border-l-4 ${e.border} space-y-2 text-left hover:-translate-y-1 transition-transform">
+          <img src="${e.image}" alt="${e.title}" loading="lazy" class="w-full h-36 object-cover rounded-xl" />
+          <span class="text-[10px] font-black uppercase tracking-widest ${e.labelColor}">${e.label}</span>
+          <h3 class="font-bold text-lg">${e.title}</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">${e.desc}</p>
+          <span class="text-[11px] font-bold text-fm-gold">Details →</span>
+        </button>`;
+    }
+
+    function renderAllCards() {
+      document.getElementById('home-cards').innerHTML = SERVICES.map(serviceCardHTML).join('');
+      document.getElementById('ministry-grid').innerHTML = SERVICES.map(serviceCardHTML).join('');
+      document.getElementById('teaching-grid').innerHTML = TEACHINGS.map(teachingCardHTML).join('');
+      document.getElementById('events-grid').innerHTML = EVENTS.map(eventCardHTML).join('');
+    }
+
+    // ---------- 7. Photos: carousel, gallery, videos ----------
+    function photoHTML(src, alt, cls) {
+      return `
+        <div class="${cls} bg-gradient-to-br from-fm-purple to-fm-royal flex items-center justify-center text-fm-gold/60 text-3xl relative overflow-hidden">
+          <i class="fa-solid fa-image"></i>
+          <img src="${src}" alt="${alt}" loading="lazy" class="absolute inset-0 w-full h-full object-cover" onerror="this.remove()" />
+        </div>`;
+    }
+
+    function renderMedia() {
+      // Carousel (duplicated for seamless loop)
+      const slides = CAROUSEL.map(src => `
+        <div class="w-[224px] mr-4 flex-shrink-0 cursor-pointer" onclick="openLightbox('${src}')">
+          ${photoHTML(src, 'Ministry photo', 'h-44 rounded-2xl shadow-md')}
+        </div>`).join('');
+      document.getElementById('carousel').innerHTML = slides + slides;
+
+      // Sermon videos — playable inline via YouTube embeds
+      document.getElementById('video-grid').innerHTML = VIDEOS.map((v) => `
+        <div class="bg-white rounded-2xl border border-slate-100 overflow-hidden shadow-sm">
+          <div class="aspect-video w-full bg-fm-purple">
+            <iframe class="w-full h-full" src="${v.src}" title="${v.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="p-4">
+            <p class="font-bold text-sm">${v.title}</p>
+            <p class="text-[11px] text-slate-500 mt-1">${v.sub}</p>
+          </div>
+        </div>`).join('');
+
+      setFilter('all');
+    }
+
+    function setFilter(f, btn) {
+      if (btn) {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      }
+      const list = GALLERY.filter(g => f === 'all' || g.cat === f);
+      document.getElementById('gallery-grid').innerHTML = list.map(g => `
+        <div class="cursor-pointer hover:scale-[1.03] transition-transform" onclick="openLightbox('${g.src}', '${g.caption}')">
+          ${photoHTML(g.src, g.caption, 'h-40 sm:h-52 rounded-2xl shadow-sm')}
+        </div>`).join('');
+    }
+
+    // ---------- 8. Modal system (every modal has an image) ----------
+    function showModal() {
+      const m = document.getElementById('modal');
+      m.classList.remove('hidden');
+      m.classList.add('flex');
+    }
+
+    function closeModal() {
+      const m = document.getElementById('modal');
+      m.classList.add('hidden');
+      m.classList.remove('flex');
+    }
+
+    function fillModal({ tag, title, verse, image, bodyHTML }) {
+      document.getElementById('modal-tag').innerText = tag;
+      document.getElementById('modal-title').innerText = title;
+      document.getElementById('modal-verse').innerText = verse || '';
+      document.getElementById('modal-img').src = image;
+      document.getElementById('modal-img').alt = title;
+      document.getElementById('modal-body').innerHTML = bodyHTML;
+      showModal();
+    }
+
+    function bulletList(items) {
+      return `<ul class="space-y-1.5">` + items.map(p => `<li class="flex gap-2"><i class="fa-solid fa-circle-check text-fm-gold mt-0.5"></i><span>${p}</span></li>`).join('') + `</ul>`;
+    }
+
+    function whatsappButton(text) {
+      return `<a href="https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}" target="_blank" rel="noopener" class="block text-center bg-fm-purple text-white font-extrabold py-3 rounded-xl uppercase tracking-wider hover:bg-fm-gold hover:text-fm-purple transition-colors"><i class="fa-brands fa-whatsapp mr-2"></i>Enquire on WhatsApp</a>`;
+    }
+
+    function openServiceModal(i) {
+      const s = SERVICES[i];
+      fillModal({
+        tag: s.tag, title: s.title, verse: s.verse, image: s.image,
+        bodyHTML: `
+          <p>${s.desc}</p>
+          <div><p class="font-bold text-fm-purple mb-1 uppercase text-[10px] tracking-widest">What to expect</p>${bulletList(s.points)}</div>
+          <p class="bg-fm-cream p-3 rounded-xl"><b>How to prepare:</b> ${s.prepare}</p>
+          <p class="text-[11px] font-bold text-slate-500"><i class="fa-solid fa-location-dot text-fm-gold mr-1"></i>${s.meta}</p>
+          ${whatsappButton('Hello Ven. Onokpite, I would like to know more about: ' + s.title)}`
+      });
+    }
+
+    function openTeachingModal(i) {
+      const t = TEACHINGS[i];
+      fillModal({
+        tag: 'Teaching Series', title: t.title, verse: t.verse, image: t.image,
+        bodyHTML: `
+          <p>${t.desc}</p>
+          <div><p class="font-bold text-fm-purple mb-1 uppercase text-[10px] tracking-widest">Key scriptures & points</p>${bulletList(t.points)}</div>
+          <p class="bg-fm-cream p-3 rounded-xl">Watch the full teaching on <b>@FreebornMinistries</b> on YouTube, or request study notes on WhatsApp.</p>
+          <div class="grid grid-cols-2 gap-2">
+            <a href="https://www.youtube.com/@FreebornMinistries" target="_blank" rel="noopener" class="block text-center bg-fm-rose text-white font-extrabold py-3 rounded-xl uppercase tracking-wider text-[11px]"><i class="fa-brands fa-youtube mr-1"></i>YouTube</a>
+            ${whatsappButton('Hello, please send me notes on: ' + t.title)} 
+          </div>`
+      });
+    }
+
+    function openEventModal(i) {
+      const e = EVENTS[i];
+      fillModal({
+        tag: e.label + ' Programme', title: e.title, verse: e.verse, image: e.image,
+        bodyHTML: `
+          <p>${e.desc}</p>
+          <div><p class="font-bold text-fm-purple mb-1 uppercase text-[10px] tracking-widest">Programme flow</p>${bulletList(e.points)}</div>
+          <p class="bg-fm-cream p-3 rounded-xl"><b>Venue:</b> ${e.meta}</p>
+          ${whatsappButton('Hello, I would like details about: ' + e.title)}`
+      });
+    }
+
+    function openPrayer() {
+      fillModal({
+        tag: 'We are listening', title: 'Prayer Request', image: 'sir.jpg',
+        verse: '"Call unto me, and I will answer thee." — Jeremiah 33:3 (KJV)',
+        bodyHTML: `
+          <form onsubmit="handlePrayer(event)" class="space-y-3">
+            <input id="pName" required placeholder="Your name (or Anonymous)" class="w-full p-3.5 rounded-xl border border-slate-200" />
+            <textarea id="pText" required rows="4" placeholder="How can we pray with you?" class="w-full p-3.5 rounded-xl border border-slate-200"></textarea>
+            <button class="w-full bg-[#25D366] text-white font-extrabold py-3 rounded-xl uppercase tracking-wider"><i class="fa-brands fa-whatsapp mr-2"></i>Send Prayer Request</button>
+            <p class="text-[11px] text-slate-400 text-center">Every request is prayed over. We reply within 48 hours.</p>
+          </form>`
+      });
+    }
+
+    function handlePrayer(e) {
+      e.preventDefault();
+      const text = `Prayer request from ${document.getElementById('pName').value}: ${document.getElementById('pText').value}`;
+      window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`, '_blank');
+      closeModal();
+    }
+
+    // ---------- 9. Forms ----------
+    function handleContact(e) {
+      e.preventDefault();
+      const text = `Hello Ven. Onokpite, I am ${document.getElementById('nameInput').value}. Purpose: ${document.getElementById('purposeInput').value}.\n${document.getElementById('messageInput').value || ''}`;
+      window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`, '_blank');
+    }
+
+    function handlePledge(e) {
+      e.preventDefault();
+      const text = `Hello Ven. Onokpite, I am ${document.getElementById('pledge-name').value}. I pledge ₦${document.getElementById('pledge-amt').value} to support Freeborn Ministries. Please confirm next steps.`;
+      window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`, '_blank');
+    }
+
+    // ---------- 10. Navigation + UI helpers ----------
+    function switchView(id) {
+      const views = ['home', 'about', 'ministry', 'gallery', 'events', 'give', 'connect'];
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      views.forEach(v => {
+        const el = document.getElementById('view-' + v);
+        const d = document.getElementById('d-nav-' + v);
+        const m = document.getElementById('m-nav-' + v);
+        const on = (v === id);
+        el.classList.toggle('hidden', !on);
+        if (d) d.className = on ? 'text-fm-gold font-extrabold border-b-2 border-fm-gold pb-0.5' : 'hover:text-fm-gold transition-colors';
+        if (m) m.className = 'flex flex-col items-center w-11 ' + (on ? 'text-fm-gold scale-105 transition-transform' : 'text-slate-400 hover:text-white');
+      });
+    }
+
+    function toggleAccordion(btn) {
+      const item = btn.closest('.accordion-item');
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.accordion-item.open').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    }
+
+    function openLightbox(src, caption = '') {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox-cap').innerText = caption;
+      const l = document.getElementById('lightbox');
+      l.classList.remove('hidden');
+      l.classList.add('flex');
+    }
+
+    function closeLightbox() {
+      const l = document.getElementById('lightbox');
+      l.classList.add('hidden');
+      l.classList.remove('flex');
+    }
+
+    // Testimony slider
+    let testiIndex = 0;
+    function moveTesti(d) {
+      const track = document.getElementById('testi-track');
+      const n = track.children.length;
+      testiIndex = (testiIndex + d + n) % n;
+      const step = track.children[0].getBoundingClientRect().width + 16;
+      track.style.transform = `translateX(-${testiIndex * step}px)`;
+      document.querySelectorAll('#testi-dots .tab-dot').forEach((x, i) => {
+        x.className = 'tab-dot w-2 h-2 rounded-full ' + (i === testiIndex ? 'bg-fm-gold' : 'bg-slate-300');
+      });
+    }
+
+    // Toast + copy + tiers
+    function toast(msg) {
+      const t = document.getElementById('toast');
+      t.innerText = msg;
+      t.classList.remove('hidden');
+      setTimeout(() => t.classList.add('hidden'), 2500);
+    }
+
+    function copyText(t) {
+      if (navigator.clipboard) navigator.clipboard.writeText(t).then(() => toast('Giving details copied'));
+    }
+
+    function selectTier(btn, label, desc) {
+      document.querySelectorAll('.tier-card').forEach(c => c.classList.remove('selected'));
+      btn.classList.add('selected');
+      document.getElementById('tier-output').innerText = label + ': ' + desc;
+    }
+
+    // Animated counters
+    function runCounter(el) {
+      if (el.dataset.done) return;
+      el.dataset.done = '1';
+      const target = parseInt(el.dataset.target, 10);
+      const start = performance.now();
+      (function tick(t) {
+        const p = Math.min((t - start) / 1400, 1);
+        el.innerText = Math.round(target * (1 - Math.pow(1 - p, 3)));
+        if (p < 1) requestAnimationFrame(tick);
+      })(start);
+    }
+
+    const counterObserver = new IntersectionObserver(entries => {
+      entries.forEach(en => {
+        if (en.isIntersecting) en.target.querySelectorAll('.counter').forEach(runCounter);
+      });
+    }, { threshold: .25 });
+    document.querySelectorAll('div.glass-card').forEach(el => counterObserver.observe(el));
+
+    // Global keys + scroll
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeModal(); closeLightbox(); } });
+    window.addEventListener('scroll', () => {
+      document.getElementById('back-to-top').classList.toggle('show', window.scrollY > 600);
+    }, { passive: true });
+
+    // ---------- 11. Start the site ----------
+    renderAllCards();
+    renderMedia();
+    switchView('home');
+  </script>
+</body>
+</html>
