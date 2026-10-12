@@ -546,52 +546,84 @@
         <div class="relative">
           <span class="text-[11px] font-black uppercase tracking-widest text-fm-gold">Partner With Us</span>
           <h2 class="text-3xl font-serif font-bold">Support the Work of the Ministry</h2>
-          <p class="text-sm text-slate-300 max-w-2xl leading-relaxed">Your giving helps us teach the Word, minister deliverance and mentor the next generation.</p>
+          <p class="text-sm text-slate-300 max-w-2xl leading-relaxed">Tithe, Offerings, Seed &amp; Thanksgiving — sow in faith, give with joy. Your giving helps us teach the Word, minister deliverance and mentor the next generation.</p>
           <p class="font-serif italic text-sm text-fm-gold mt-2">"God loveth a cheerful giver." — 2 Corinthians 9:7 (KJV)</p>
         </div>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-6">
-        <button onclick="selectTier(this,'Seed','A one-time gift towards the ministry.')" class="tier-card glass-card p-6 rounded-2xl text-left space-y-2 border-2 border-transparent transition-all">
-          <i class="fa-solid fa-seedling text-fm-gold text-xl"></i>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <button onclick="selectTier(this,'Tithe','The tenth belongs to the Lord — honour God first.')" class="tier-card glass-card p-6 rounded-2xl text-left space-y-2 border-2 border-transparent transition-all">
+          <i class="fa-solid fa-scale-balanced text-fm-gold text-xl"></i>
+          <h3 class="font-bold text-lg">Tithe</h3>
+          <p class="text-xs text-slate-500 leading-relaxed">The tenth belongs to the Lord — honour God first with the firstfruits of your increase.</p>
+          <p class="font-serif italic text-[11px] text-slate-400">"Bring ye all the tithes into the storehouse… and prove me now herewith." — Malachi 3:10 (KJV)</p>
+        </button>
+        <button onclick="selectTier(this,'Offering','A freewill gift of love and worship beyond the tithe.')" class="tier-card glass-card p-6 rounded-2xl text-left space-y-2 border-2 border-transparent transition-all">
+          <i class="fa-solid fa-hand-holding-heart text-fm-royal text-xl"></i>
+          <h3 class="font-bold text-lg">Offerings</h3>
+          <p class="text-xs text-slate-500 leading-relaxed">Freewill gifts of love and worship beyond the tithe, given to advance the work of God.</p>
+          <p class="font-serif italic text-[11px] text-slate-400">"Every man according as he purposeth in his heart… for God loveth a cheerful giver." — 2 Corinthians 9:7 (KJV)</p>
+        </button>
+        <button onclick="selectTier(this,'Seed','Sow toward harvest — missions, outreach and lives.')" class="tier-card glass-card p-6 rounded-2xl text-left space-y-2 border-2 border-transparent transition-all">
+          <i class="fa-solid fa-seedling text-fm-rose text-xl"></i>
           <h3 class="font-bold text-lg">Seed Offering</h3>
-          <p class="text-xs text-slate-500">A one-time gift of any amount.</p>
-          <p class="font-serif italic text-[11px] text-slate-400">"In the morning sow thy seed." — Ecclesiastes 11:6 (KJV)</p>
+          <p class="text-xs text-slate-500 leading-relaxed">Sow toward harvest — missions, outreach and transformed lives.</p>
+          <p class="font-serif italic text-[11px] text-slate-400">"In the morning sow thy seed… thou knowest not whether shall prosper." — Ecclesiastes 11:6 (KJV)</p>
         </button>
-        <button onclick="selectTier(this,'Partner','A monthly gift to sustain outreach and teaching.')" class="tier-card glass-card p-6 rounded-2xl text-left space-y-2 border-2 border-transparent transition-all">
-          <i class="fa-solid fa-handshake text-fm-royal text-xl"></i>
-          <h3 class="font-bold text-lg">Ministry Partner</h3>
-          <p class="text-xs text-slate-500">A monthly gift to sustain the work.</p>
-          <p class="font-serif italic text-[11px] text-slate-400">"Bear ye one another's burdens." — Galatians 6:2 (KJV)</p>
-        </button>
-        <button onclick="selectTier(this,'Covenant','A pledge toward special programmes and projects.')" class="tier-card glass-card p-6 rounded-2xl text-left space-y-2 border-2 border-transparent transition-all">
-          <i class="fa-solid fa-dove text-fm-rose text-xl"></i>
-          <h3 class="font-bold text-lg">Covenant Pledge</h3>
-          <p class="text-xs text-slate-500">Support special programmes and projects.</p>
-          <p class="font-serif italic text-[11px] text-slate-400">"Vow, and pay unto the Lord." — Psalm 76:11 (KJV)</p>
+        <button onclick="selectTier(this,'Thanksgiving','Testify of mercies received — healing, provision, deliverance.')" class="tier-card glass-card p-6 rounded-2xl text-left space-y-2 border-2 border-transparent transition-all">
+          <i class="fa-solid fa-hands-praying text-fm-purple text-xl"></i>
+          <h3 class="font-bold text-lg">Thanksgiving</h3>
+          <p class="text-xs text-slate-500 leading-relaxed">Testify of mercies received — healing, provision and deliverance — with a grateful heart.</p>
+          <p class="font-serif italic text-[11px] text-slate-400">"Offer unto God thanksgiving; and pay thy vows unto the most High." — Psalm 50:14 (KJV)</p>
         </button>
       </div>
 
-      <p id="tier-output" class="text-center text-xs font-bold text-fm-gold">Choose a giving option above.</p>
+      <p id="tier-output" class="text-center text-xs font-bold text-fm-gold">Remember to indicate Tithe / Offering / Seed / Thanksgiving in the payment details such that your contribution is properly categorized.</p>
 
       <div class="grid lg:grid-cols-2 gap-8">
         <div class="glass-card rounded-3xl p-6 space-y-3">
-          <h3 class="font-serif font-bold text-xl">Give by Bank Transfer</h3>
-          <div class="text-xs space-y-1 bg-white p-4 rounded-xl border border-slate-100">
-            <p><b>Bank:</b> [Bank Name]</p>
-            <p><b>Account Name:</b> [Account Name]</p>
-            <p><b>Account Number:</b> [0000000000]</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-fm-gold/10 text-fm-gold flex items-center justify-center"><i class="fa-solid fa-building-columns"></i></div>
+            <div>
+              <h3 class="font-serif font-bold text-xl">Naira Giving (₦)</h3>
+              <p class="text-[11px] text-slate-500">Tithe, Offerings, Seed &amp; Thanksgiving in Naira</p>
+            </div>
           </div>
-          <button onclick="copyText('[Bank Name] | [Account Name] | [Account Number]')" class="text-xs font-bold text-fm-gold hover:underline"><i class="fa-regular fa-copy mr-1"></i>Copy giving details</button>
+          <div class="text-xs space-y-1 bg-white p-4 rounded-xl border border-slate-100">
+            <p><b>Bank:</b> Eco Bank</p>
+            <p><b>Account Name:</b> Freeborn Onokpite</p>
+            <p><b>Account Number:</b> 2271169061</p>
+          </div>
+          <button onclick="copyText('Eco Bank | Freeborn Onokpite | 2271169061')" class="text-xs font-bold text-fm-gold hover:underline"><i class="fa-regular fa-copy mr-1"></i>Copy Naira details</button>
         </div>
         <div class="glass-card rounded-3xl p-6 space-y-3">
-          <h3 class="font-serif font-bold text-xl">Make a Pledge</h3>
-          <form onsubmit="handlePledge(event)" class="space-y-3 text-xs">
-            <input id="pledge-name" required placeholder="Your name" class="w-full p-3.5 rounded-xl border border-slate-200 bg-white" />
-            <input id="pledge-amt" required placeholder="Amount (₦)" class="w-full p-3.5 rounded-xl border border-slate-200 bg-white" />
-            <button class="w-full bg-[#25D366] text-white font-extrabold py-3.5 rounded-xl uppercase tracking-wider"><i class="fa-brands fa-whatsapp mr-2"></i>Send Pledge via WhatsApp</button>
-          </form>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-fm-royal/10 text-fm-royal flex items-center justify-center"><i class="fa-solid fa-globe"></i></div>
+            <div>
+              <h3 class="font-serif font-bold text-xl">Domiciliary Giving</h3>
+              <div class="flex gap-1.5 mt-1">
+                <span class="text-[10px] font-black px-2 py-0.5 rounded-full bg-fm-royal/10 text-fm-royal">USD ($)</span>
+                <span class="text-[10px] font-black px-2 py-0.5 rounded-full bg-fm-royal/10 text-fm-royal">GBP (£)</span>
+                <span class="text-[10px] font-black px-2 py-0.5 rounded-full bg-fm-royal/10 text-fm-royal">EUR (€)</span>
+              </div>
+            </div>
+          </div>
+          <div class="text-xs space-y-1 bg-white p-4 rounded-xl border border-slate-100">
+            <p><b>Bank:</b> First Bank</p>
+            <p><b>Account Name:</b> Freeborn Onokpite</p>
+            <p><b>Account Number:</b> 2036380387</p>
+          </div>
+          <button onclick="copyText('First Bank | Freeborn Onokpite | 2036380387')" class="text-xs font-bold text-fm-gold hover:underline"><i class="fa-regular fa-copy mr-1"></i>Copy domiciliary details</button>
         </div>
+        <p class="lg:col-span-2 text-center font-serif italic text-xs text-slate-500">Use narration e.g. "Tithe — [Your Name]". "Honour the Lord with thy substance, and with the firstfruits of all thine increase." — Proverbs 3:9 (KJV)</p>
+      </div>
+      <div class="glass-card rounded-3xl p-6 space-y-3 max-w-2xl mx-auto">
+        <h3 class="font-serif font-bold text-xl">Make a Pledge</h3>
+        <form onsubmit="handlePledge(event)" class="space-y-3 text-xs">
+          <input id="pledge-name" required placeholder="Your name" class="w-full p-3.5 rounded-xl border border-slate-200 bg-white" />
+          <input id="pledge-amt" required placeholder="Amount (₦ / $ / £ / €)" class="w-full p-3.5 rounded-xl border border-slate-200 bg-white" />
+          <button class="w-full bg-[#25D366] text-white font-extrabold py-3.5 rounded-xl uppercase tracking-wider"><i class="fa-brands fa-whatsapp mr-2"></i>Send Pledge via WhatsApp</button>
+        </form>
       </div>
     </section>
 
@@ -680,7 +712,7 @@
   <footer class="bg-fm-purple text-white pt-14 pb-24 md:pb-10 border-t-4 border-fm-gold">
     <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10 pb-10 border-b border-white/10">
       <div class="space-y-3">
-        <span class="font-serif font-bold text-xl tracking-wider uppercase">Freeborn Ministries</span>
+        <span class="font-serif font-bold text-xl tracking-wider uppercase">Freeborn Ministries International</span>
         <p class="text-xs text-slate-300 leading-relaxed">Transforming lives through the Word of God, prayer, and deliverance. Based in the Anglican Diocese of Ughelli.</p>
         <p class="font-serif italic text-xs text-fm-gold">"The Lord bless thee, and keep thee." — Numbers 6:24 (KJV)</p>
       </div>
@@ -698,7 +730,7 @@
       </div>
       <div class="space-y-2.5 text-xs text-slate-300">
         <h4 class="text-xs font-bold uppercase tracking-widest text-fm-gold mb-3">Contact</h4>
-        <p><i class="fa-solid fa-location-dot text-fm-gold mr-2"></i>All Saints' Chapel, DSC Township, Warri</p>
+        <p><i class="fa-solid fa-location-dot text-fm-gold mr-2"></i>All Saints' Chapel, DSC Township, Ughelli, Delta State, Nigeria</p>
         <p><i class="fa-brands fa-whatsapp text-[#25D366] mr-2"></i>+234 803 404 0148</p>
         <p><i class="fa-solid fa-envelope text-fm-gold mr-2"></i>freebornministries01@gmail.com</p>
         <div class="flex gap-4 text-xl pt-2">
@@ -710,7 +742,7 @@
       </div>
     </div>
     <div class="max-w-7xl mx-auto px-6 pt-6 text-center text-[11px] text-slate-400 flex flex-col sm:flex-row justify-between gap-2">
-      <span>&copy; 2026 Freeborn Ministries, Warri, Delta State, Nigeria</span>
+      <span>&copy; 2026 Freeborn Ministries, Ughelli, Delta State, Nigeria</span>
       <span>Word • Prayer • Deliverance</span>
     </div>
   </footer>
