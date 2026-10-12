@@ -154,6 +154,35 @@
         height: 16rem !important;
       }
     }
+
+    /* Small text-links restyled as gold pill buttons */
+    .link-btn {
+      display: inline-flex; align-items: center; gap: .4rem;
+      padding: .55rem 1.1rem; border-radius: 9999px;
+      background: #C9A227; color: #3F2468;
+      font-size: 11px; font-weight: 800; letter-spacing: .02em;
+      box-shadow: 0 6px 18px rgba(201,162,39,.35);
+      transition: transform .2s, background .2s;
+    }
+    .link-btn:hover { background: #e0b93a; transform: translateY(-1px); }
+    .link-btn:active { transform: none; }
+    .link-btn:focus-visible { outline: 2px solid #3F2468; outline-offset: 2px; }
+
+    /* PC-only (>=1024px): Events banners show whole photo */
+    @media (min-width: 1024px) {
+      #view-events > div > img[src="b5.jpg"] {
+        object-fit: contain !important;
+        object-position: center !important;
+        background: #2A4B8D;
+        height: 28rem !important;
+      }
+      #view-events .bg-white img[src="54.jpeg"] {
+        object-fit: contain !important;
+        object-position: center !important;
+        background: #FAF7F2;
+        height: 22rem !important;
+      }
+    }
   </style>
 </head>
 
@@ -298,7 +327,7 @@
           <h3 class="font-bold text-lg">Divine Encounter</h3>
           <p class="text-xs text-slate-500 leading-relaxed">Our signature prayer and deliverance service.</p>
           <p class="font-serif italic text-[11px] text-slate-400">"Upon mount Zion shall be deliverance." — Obadiah 1:17 (KJV)</p>
-          <button onclick="switchView('events')" class="text-[11px] font-bold text-fm-gold hover:underline">See the schedule →</button>
+          <button onclick="switchView('events')" class="link-btn">See the schedule →</button>
         </div>
         <div class="bg-white p-6 rounded-2xl space-y-3 border border-slate-100 shadow-sm">
           <img src="1.jpg" alt="Congregation worshipping" class="w-full h-32 object-cover rounded-xl" loading="lazy" />
@@ -306,7 +335,7 @@
           <h3 class="font-bold text-lg">Worship With Us</h3>
           <p class="text-xs text-slate-500 leading-relaxed">All Saints' Anglican Chapel, Ughelli.</p>
           <p class="font-serif italic text-[11px] text-slate-400">"I was glad... Let us go into the house of the Lord." — Psalm 122:1 (KJV)</p>
-          <button onclick="switchView('connect')" class="text-[11px] font-bold text-fm-royal hover:underline">Plan your visit →</button>
+          <button onclick="switchView('connect')" class="link-btn">Plan your visit →</button>
         </div>
       </div>
 
@@ -855,7 +884,7 @@
           <div class="w-10 h-10 rounded-lg bg-${s.color}/10 text-${s.color} flex items-center justify-center"><i class="fa-solid ${s.icon}"></i></div>
           <h3 class="font-bold text-lg">${s.title}</h3>
           <p class="text-xs text-slate-600 leading-relaxed">${s.desc}</p>
-          <span class="text-[11px] font-bold text-${s.color}">Learn more →</span>
+          <span class="link-btn">Learn more →</span>
         </article>`;
     }
 
@@ -864,7 +893,7 @@
         <button onclick="openTeachingModal(${i})" class="bg-white p-5 rounded-2xl border border-slate-100 text-left hover:-translate-y-1 transition-transform">
           <img src="${t.image}" alt="${t.title}" loading="lazy" class="w-full h-28 object-cover rounded-xl mb-3" />
           <p class="font-bold text-sm"><i class="fa-solid fa-book-bible text-fm-gold mr-2"></i>${t.title}</p>
-          <span class="text-[11px] font-bold text-fm-gold">Open study →</span>
+          <span class="link-btn">Open study →</span>
         </button>`;
     }
 
@@ -875,7 +904,7 @@
           <span class="text-[10px] font-black uppercase tracking-widest ${e.labelColor}">${e.label}</span>
           <h3 class="font-bold text-lg">${e.title}</h3>
           <p class="text-xs text-slate-600 leading-relaxed">${e.desc}</p>
-          <span class="text-[11px] font-bold text-fm-gold">Details →</span>
+          <span class="link-btn">Details →</span>
         </button>`;
     }
 
