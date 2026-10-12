@@ -122,6 +122,38 @@
 
     #lightbox { backdrop-filter: blur(8px); }
     #modal-image img { object-fit: cover; }
+
+    /* Tablet-only (768–1023px): show whole image, no face-cropping.
+       Mobile + desktop rules above are untouched. */
+    @media (min-width: 768px) and (max-width: 1023.98px) {
+      /* Gallery: 4 -> 3 cols so thumbs are wider, closer to PC proportions */
+      #gallery-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      #gallery-grid > div > div { height: 11rem; }
+
+      /* Card / grid photos: contain whole image with theme-tinted letterbox */
+      #home-cards img, #ministry-grid img, #teaching-grid img,
+      #events-grid img, #gallery-grid img, #carousel img,
+      .glass-card img, .bg-white img.h-32, .bg-white img.h-36 {
+        object-fit: contain !important;
+        object-position: center !important;
+        background: #F1EAF6;
+      }
+
+      /* Wide banners: give height back + show whole image */
+      #view-events > div > img[src="b5.jpg"],
+      #view-connect img[src="b3.jpg"] {
+        object-fit: contain !important;
+        object-position: center !important;
+        background: #2A4B8D;
+        height: 19rem !important;
+      }
+      #view-events .bg-white img[src="54.jpeg"] {
+        object-fit: contain !important;
+        object-position: center !important;
+        background: #FAF7F2;
+        height: 16rem !important;
+      }
+    }
   </style>
 </head>
 
